@@ -2,9 +2,9 @@
 
 > 练谁 · 缺什么 · 去哪刷 —— 开源的明日方舟培养规划工具
 
-<!-- CI 徽章：发布到 GitHub 后取消注释并替换用户名/仓库名
-[![CI](https://github.com/USER/arkn-advisor/actions/workflows/ci.yml/badge.svg)](https://github.com/USER/arkn-advisor/actions/workflows/ci.yml)
--->
+**在线使用（GitHub Pages）：<https://1000zyq1000.github.io/arkn-advisor/>**
+
+[![CI](https://github.com/1000zyq1000/arkn-advisor/actions/workflows/ci.yml/badge.svg)](https://github.com/1000zyq1000/arkn-advisor/actions/workflows/ci.yml)
 
 基于**你自己的 box**（干员练度）与**材料库存**，回答三个问题：
 
