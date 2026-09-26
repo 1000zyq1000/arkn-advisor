@@ -2,7 +2,7 @@
   "name": "arkn-advisor",
   "description": "方舟培养参谋 —— 基于你的 box 推荐练谁、缺什么材料、去哪刷（开源明日方舟培养规划工具）",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "license": "MIT",
   "engines": {

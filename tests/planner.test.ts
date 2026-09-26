@@ -26,6 +26,7 @@ function tinyDataset(): Dataset {
       },
       { id: 's3', code: 'S3', name: '', sanity: 12, drops: [{ materialId: 'c', expectPerRun: 0.5 }] },
     ],
+    challengeStages: [],
     isSample: false,
     metaNote: '',
   };

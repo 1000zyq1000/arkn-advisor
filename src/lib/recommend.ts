@@ -1,11 +1,12 @@
 /**
- * 培养推荐引擎（v1 启发式评分）。
+ * 培养推荐引擎（v0.2 启发式评分）。
  *
- * 评分完全透明：valueScore（价值）÷ costFactor（剩余养成成本），
- * 并给出可读的 reasons。所有权重集中定义在 goals.ts，欢迎通过 PR 调整。
+ * 评分完全透明：valueScore（价值，可叠加关卡机制亲和加成）÷ costFactor（剩余养成成本），
+ * 并给出可读的 reasons。权重集中定义在 goals.ts 与 mechanics.ts，欢迎通过 PR 调整。
  */
 import type {
   BoxAnalysis,
+  ChallengeStage,
   Dataset,
   GoalPreset,
   OperatorInfo,
@@ -13,6 +14,7 @@ import type {
   Recommendation,
 } from './types';
 import { PROFESSIONS } from './types';
+import { MECHANIC_AFFINITY } from './mechanics';
 
 const RARITY_BASE: Record<number, number> = {
   6: 5.0,
@@ -48,12 +50,19 @@ export function analyzeBox(
   return { raised, professionCounts, missingProfessions, tagCounts };
 }
 
+export interface RecommendOptions {
+  topN?: number;
+  /** 目标关卡：提供时叠加“关卡机制 × 干员亲和”加成 */
+  stage?: ChallengeStage;
+}
+
 export function recommend(
   box: Record<string, { elite: number; level: number }>,
   preset: GoalPreset,
   dataset: Dataset,
-  topN = 10,
+  options: RecommendOptions = {},
 ): Recommendation[] {
+  const { topN = 10, stage } = options;
   const analysis = analyzeBox(box, dataset);
   const results: Recommendation[] = [];
 
@@ -68,7 +77,26 @@ export function recommend(
       return acc + weight * gap + 0.05;
     }, 0);
 
-    const valueScore = (RARITY_BASE[op.rarity] ?? 1) * classWeight * (0.7 + tagScore);
+    // 目标关卡机制亲和：标签命中强于仅职业命中；高练 box 中该亲和稀缺时更高
+    let stageBonus = 0;
+    const stageReasons: string[] = [];
+    if (stage) {
+      for (const mechanic of stage.mechanics) {
+        const aff = MECHANIC_AFFINITY[mechanic];
+        if (!aff) continue;
+        const tagHit = op.tags.some((t) => aff.tags.includes(t));
+        const profHit = aff.professions.includes(op.profession);
+        if (!tagHit && !profHit) continue;
+        const hitFactor = tagHit ? 1 : 0.6;
+        const gapFactor = (analysis.tagCounts[aff.tags[0] ?? ''] ?? 0) === 0 ? 1 : 0.5;
+        stageBonus += aff.weight * hitFactor * gapFactor;
+        stageReasons.push(`针对「${stage.code}」的「${mechanic}」需求有亲和。`);
+      }
+      stageBonus = Math.min(stageBonus, 2.0); // 封顶，避免多机制叠加失衡
+    }
+
+    const valueScore =
+      (RARITY_BASE[op.rarity] ?? 1) * classWeight * (0.7 + tagScore) * (1 + stageBonus);
     // costFactor：已精一的干员升精二成本更低，得分更高
     const costFactor = entry?.elite === 1 ? 0.65 : 1.0;
     const score = valueScore / costFactor;
@@ -83,6 +111,13 @@ export function recommend(
     }
     if (entry?.elite === 1) {
       reasons.push('已精一，升精二的养成成本较低。');
+    }
+    if (stage) {
+      if (stageReasons.length === 0) {
+        reasons.push(`对「${stage.code}」的机制需求亲和有限，仅作常规备选。`);
+      } else {
+        reasons.push(...stageReasons.slice(0, 2));
+      }
     }
     reasons.push(`「${preset.label}」场景下${op.profession}权重 ${classWeight.toFixed(2)}。`);
 

@@ -1,9 +1,17 @@
 /** 数据集加载：当前唯一来源是内置合成样例数据。 */
-import type { Dataset, MaterialInfo, StageInfo, EvolutionCost, OperBoxEntry } from './types';
+import type {
+  ChallengeStage,
+  Dataset,
+  MaterialInfo,
+  StageInfo,
+  EvolutionCost,
+  OperBoxEntry,
+} from './types';
 import sampleMaterials from '../data/sample-materials.json';
 import sampleOperators from '../data/sample-operators.json';
 import sampleEvolutionCosts from '../data/sample-evolution-costs.json';
 import sampleStages from '../data/sample-stages.json';
+import sampleChallengeStages from '../data/sample-challenge-stages.json';
 
 interface RawMaterials {
   _meta?: { source?: string; note?: string };
@@ -19,6 +27,9 @@ interface RawStages {
 }
 interface RawEvolutionCosts {
   costs: Record<string, EvolutionCost>;
+}
+interface RawChallenges {
+  challengeStages: ChallengeStage[];
 }
 
 let cached: Dataset | null = null;
@@ -39,6 +50,7 @@ export function loadDataset(): Dataset {
   const ops = sampleOperators as RawOperators;
   const stages = sampleStages as RawStages;
   const evolutionCosts = (sampleEvolutionCosts as unknown as RawEvolutionCosts).costs;
+  const challengeStages = (sampleChallengeStages as unknown as RawChallenges).challengeStages;
 
   const isSample = mats._meta?.source === 'SYNTHETIC_SAMPLE';
 
@@ -47,6 +59,7 @@ export function loadDataset(): Dataset {
     operators: ops.operators,
     evolutionCosts,
     stages: stages.stages,
+    challengeStages,
     isSample,
     metaNote: mats._meta?.note ?? '',
   };

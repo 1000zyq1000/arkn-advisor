@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { depotByNameToIds, loadDataset, resetDatasetCache } from '../src/lib/data';
+import { MECHANIC_AFFINITY } from '../src/lib/mechanics';
 import { PROFESSIONS } from '../src/lib/types';
 
 /**
@@ -86,5 +87,17 @@ describe('样例数据集完整性', () => {
     const a = loadDataset();
     const b = loadDataset();
     expect(a).toBe(b);
+  });
+
+  it('挑战关卡机制均在亲和表中有定义，关卡编号唯一', () => {
+    expect(dataset.challengeStages.length).toBeGreaterThanOrEqual(5);
+    const codes = dataset.challengeStages.map((s) => s.code);
+    expect(new Set(codes).size).toBe(codes.length);
+    for (const stage of dataset.challengeStages) {
+      expect(stage.mechanics.length).toBeGreaterThan(0);
+      for (const m of stage.mechanics) {
+        expect(MECHANIC_AFFINITY[m], `机制「${m}」缺少亲和定义`).toBeTruthy();
+      }
+    }
   });
 });

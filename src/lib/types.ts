@@ -61,6 +61,15 @@ export interface StageInfo {
   drops: StageDrop[];
 }
 
+/** 挑战型关卡（用于“目标关卡”推荐；样例数据的机制为演示标注） */
+export interface ChallengeStage {
+  id: string;
+  code: string;
+  name: string;
+  /** 机制需求，如「需要法伤」「需要治疗续航」；必须在 MECHANIC_AFFINITY 中有定义 */
+  mechanics: string[];
+}
+
 /** 一次加载完成的完整数据集（当前来自内置样例，未来由适配器提供） */
 export interface Dataset {
   materials: Record<string, MaterialInfo>;
@@ -68,6 +77,8 @@ export interface Dataset {
   /** key 为稀有度数字字符串，如 "6" */
   evolutionCosts: Record<string, EvolutionCost>;
   stages: StageInfo[];
+  /** 挑战型关卡（“目标关卡”推荐的数据源） */
+  challengeStages: ChallengeStage[];
   /** 数据集是否为内置合成样例（UI 需据此展示提示横幅） */
   isSample: boolean;
   /** 数据集说明（展示在“数据说明”页） */
