@@ -7,10 +7,11 @@
 ```bash
 # Node.js >= 20（见 .nvmrc）
 npm install
-npm run dev      # 开发
-npm test         # 测试
-npm run lint     # ESLint
-npm run build    # 类型检查 + 构建
+npm run dev            # 开发
+npm test               # 测试（单元 + UI 冒烟）
+npm run test:coverage  # 覆盖率报告（当前仅报告，不设门槛）
+npm run lint           # ESLint
+npm run build          # 类型检查 + 构建
 ```
 
 提交 PR 前，请确保以上四项全部通过（CI 会同样执行）。

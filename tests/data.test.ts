@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { loadDataset } from '../src/lib/data';
+import { depotByNameToIds, loadDataset, resetDatasetCache } from '../src/lib/data';
 import { PROFESSIONS } from '../src/lib/types';
 
 /**
@@ -70,5 +70,21 @@ describe('样例数据集完整性', () => {
         expect(farmable.has(mat.id), `${mat.name} 应有掉落来源`).toBe(true);
       }
     }
+  });
+
+  it('depotByNameToIds 同时接受材料名与材料 ID 作为键', () => {
+    const { depot, unknownNames } = depotByNameToIds(
+      { 龙门币: 100, gold: 50, 幻影材料: 1 },
+      dataset,
+    );
+    expect(depot['gold']).toBe(150);
+    expect(unknownNames).toEqual(['幻影材料']);
+  });
+
+  it('缓存重置后仍加载同一数据集', () => {
+    resetDatasetCache();
+    const a = loadDataset();
+    const b = loadDataset();
+    expect(a).toBe(b);
   });
 });

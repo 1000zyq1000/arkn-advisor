@@ -80,7 +80,12 @@ export default function ImportPanel({ box, depot, dataset, setBox, setDepot }: P
     const next = { ...box };
     const cur: OperBoxEntry = next[name] ?? { name, elite: 0, level: 1 };
     const merged = { ...cur, ...patch };
-    if (merged.elite === 0 && patch.level === undefined) merged.level = 1;
+    if (merged.elite === 0) {
+      merged.level = 1;
+    } else if (patch.level !== undefined) {
+      const lv = Math.round(patch.level);
+      merged.level = Math.min(90, Math.max(1, lv));
+    }
     next[name] = merged;
     setBox(next);
   };

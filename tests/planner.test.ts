@@ -59,6 +59,12 @@ describe('planFarming', () => {
     expect(r.totalSanity).toBe(0);
   });
 
+  it('数量为 0 的需求不产生行', () => {
+    const r = planFarming({ demand: [{ materialId: 'a', count: 0 }], depot: {}, dataset: ds });
+    expect(r.lines).toHaveLength(0);
+    expect(r.totalSanity).toBe(0);
+  });
+
   it('用低级材料库存给出合成建议并扣减', () => {
     const r = planFarming({ demand: [{ materialId: 'c', count: 2 }], depot: { b: 2 }, dataset: ds });
     const c = r.lines.find((l) => l.materialId === 'c')!;

@@ -7,6 +7,13 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: 'node',
-    include: ['tests/**/*.test.ts'],
+    // UI 冒烟测试需要 DOM
+    environmentMatchGlobs: [['tests/ui/**', 'jsdom']],
+    include: ['tests/**/*.test.ts', 'tests/**/*.test.tsx'],
+    coverage: {
+      provider: 'v8',
+      // 覆盖率目前仅作报告（本地输出通道不可靠，阈值待 CI 实测基线后再设定）
+      include: ['src/lib/**'],
+    },
   },
 });

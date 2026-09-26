@@ -41,6 +41,30 @@ describe('parseOperBoxJson', () => {
   it('非法 JSON 抛出带原因的错误', () => {
     expect(() => parseOperBoxJson('not json')).toThrow(/无法解析 JSON/);
   });
+
+  it('同名干员多条记录保留最后一条并给出警告', () => {
+    const r = parseOperBoxJson(
+      JSON.stringify([
+        { name: '芬', elite: 0, level: 1 },
+        { name: '芬', elite: 2, level: 60 },
+      ]),
+    );
+    expect(r.value).toHaveLength(1);
+    expect(r.value[0]).toMatchObject({ elite: 2, level: 60 });
+    expect(r.warnings.some((w) => w.includes('出现多条记录'))).toBe(true);
+  });
+
+  it('越界潜能被钳制到 0–6 并警告', () => {
+    const r = parseOperBoxJson(
+      JSON.stringify([
+        { name: '能天使', elite: 2, potential: 9 },
+        { name: '克洛丝', potential: -3 },
+      ]),
+    );
+    expect(r.value[0]!.potential).toBe(6);
+    expect(r.value[1]!.potential).toBe(0);
+    expect(r.warnings.some((w) => w.includes('潜能'))).toBe(true);
+  });
 });
 
 describe('parseDepotJson', () => {

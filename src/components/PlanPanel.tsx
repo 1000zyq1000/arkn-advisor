@@ -29,7 +29,7 @@ export default function PlanPanel({ box, depot, dataset }: Props) {
     setError(null);
     try {
       const targets: DemandTarget[] = dataset.operators
-        .filter((o) => selected.has(o.name))
+        .filter((o) => selected.has(o.name) && box[o.name])
         .map((o) => ({ info: o, targetPhase }));
       if (targets.length === 0) {
         setResult(null);

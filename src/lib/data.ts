@@ -70,10 +70,11 @@ export function depotByNameToIds(
   for (const mat of Object.values(dataset.materials)) nameToId.set(mat.name, mat.id);
   const depot: Record<string, number> = {};
   const unknownNames: string[] = [];
-  for (const [name, count] of Object.entries(byName)) {
-    const id = nameToId.get(name);
-    if (!id) {
-      unknownNames.push(name);
+  for (const [key, count] of Object.entries(byName)) {
+    // 键可以是材料名，也可以直接是材料 ID
+    const id = nameToId.has(key) ? nameToId.get(key)! : key;
+    if (!dataset.materials[id]) {
+      unknownNames.push(key);
       continue;
     }
     depot[id] = (depot[id] ?? 0) + count;

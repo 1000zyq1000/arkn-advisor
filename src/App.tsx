@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import pkg from '../package.json';
 import type { Depot, OperBoxEntry } from './lib/types';
 import { loadDataset } from './lib/data';
+import ErrorBoundary from './components/ErrorBoundary';
 import ImportPanel from './components/ImportPanel';
 import RecommendPanel from './components/RecommendPanel';
 import PlanPanel from './components/PlanPanel';
@@ -76,22 +78,25 @@ export default function App() {
       </nav>
 
       <main>
-        {tab === 'import' ? (
-          <ImportPanel
-            box={box}
-            depot={depot}
-            dataset={dataset}
-            setBox={(b) => setState((s) => ({ ...s, box: b }))}
-            setDepot={(d) => setState((s) => ({ ...s, depot: d }))}
-          />
-        ) : null}
-        {tab === 'recommend' ? <RecommendPanel box={box} dataset={dataset} /> : null}
-        {tab === 'plan' ? <PlanPanel box={box} depot={depot} dataset={dataset} /> : null}
-        {tab === 'about' ? <AboutPanel dataset={dataset} /> : null}
+        <ErrorBoundary>
+          {tab === 'import' ? (
+            <ImportPanel
+              box={box}
+              depot={depot}
+              dataset={dataset}
+              setBox={(b) => setState((s) => ({ ...s, box: b }))}
+              setDepot={(d) => setState((s) => ({ ...s, depot: d }))}
+            />
+          ) : null}
+          {tab === 'recommend' ? <RecommendPanel box={box} dataset={dataset} /> : null}
+          {tab === 'plan' ? <PlanPanel box={box} depot={depot} dataset={dataset} /> : null}
+          {tab === 'about' ? <AboutPanel dataset={dataset} /> : null}
+        </ErrorBoundary>
       </main>
 
       <footer className="footer">
-        纯本地计算 · 不上传任何数据 · MIT 开源 —— 数据来源与状态见「数据说明」
+        方舟培养参谋 v{pkg.version} · 纯本地计算 · 不上传任何数据 · MIT 开源 ——
+        数据来源与状态见「数据说明」
       </footer>
     </div>
   );

@@ -36,10 +36,11 @@ npm run dev        # 本地开发（默认 http://localhost:5173）
 ```
 
 ```bash
-npm test           # 单元测试（34 个用例）
-npm run lint       # ESLint
-npm run build      # 类型检查 + 产物构建（dist/）
-npm run preview    # 预览构建产物
+npm test              # 单元测试 + UI 冒烟（52 个用例）
+npm run test:coverage # 覆盖率报告（当前仅报告；门槛待 CI 实测基线后设定）
+npm run lint          # ESLint
+npm run build         # 类型检查 + 产物构建（dist/）
+npm run preview       # 预览构建产物
 ```
 
 ## 使用流程

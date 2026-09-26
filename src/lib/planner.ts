@@ -60,6 +60,7 @@ export function planFarming({ demand, depot, dataset }: PlanParams): PlanResult 
       warnings.push(`需求中的材料 ${req.materialId} 不在数据集中，已跳过。`);
       continue;
     }
+    if (req.count <= 0) continue; // 数量为 0 的需求不产生行
     const need = req.count;
     const have = Math.max(0, working[req.materialId] ?? 0);
     const usable = Math.min(have, need);

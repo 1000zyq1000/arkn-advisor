@@ -54,7 +54,7 @@ export function parseOperBoxJson(text: string): ParseResult<OperBoxEntry[]> {
   }
 
   const arr = extractArray(raw, warnings);
-  const entries: OperBoxEntry[] = [];
+  const byName = new Map<string, OperBoxEntry>();
   arr.forEach((item, i) => {
     if (item === null || typeof item !== 'object') {
       warnings.push(`第 ${i + 1} 条不是对象，已跳过。`);
@@ -69,7 +69,14 @@ export function parseOperBoxJson(text: string): ParseResult<OperBoxEntry[]> {
     }
     let elite = asNumber(pick(obj, ['elite', '精英', '精英化', 'evolve', 'phase'])) ?? 0;
     let level = asNumber(pick(obj, ['level', '等级'])) ?? 1;
-    const potential = asNumber(pick(obj, ['potential', '潜能']));
+    const pRaw = asNumber(pick(obj, ['potential', '潜能']));
+    let potential: number | undefined;
+    if (pRaw !== undefined) {
+      potential = Math.min(6, Math.max(0, Math.round(pRaw)));
+      if (potential !== pRaw) {
+        warnings.push(`「${name}」的潜能 ${pRaw} 不在 0–6 范围，已钳制为 ${potential}。`);
+      }
+    }
 
     if (elite < 0 || elite > 2) {
       warnings.push(`「${name}」的精英化取值 ${elite} 不在 0–2 范围，已按 2 处理。`);
@@ -80,8 +87,12 @@ export function parseOperBoxJson(text: string): ParseResult<OperBoxEntry[]> {
       level = 1;
     }
 
-    entries.push({ name, elite: elite as Elite, level, potential });
+    if (byName.has(name)) {
+      warnings.push(`「${name}」出现多条记录，已保留最后一条。`);
+    }
+    byName.set(name, { name, elite: elite as Elite, level, potential });
   });
+  const entries = [...byName.values()];
 
   if (entries.length === 0 && warnings.length === 0) {
     warnings.push('解析结果为空。');
