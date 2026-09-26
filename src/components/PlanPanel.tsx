@@ -122,7 +122,12 @@ export default function PlanPanel({ box, depot, dataset }: Props) {
               <tbody>
                 {result.lines.map((l) => (
                   <tr key={l.materialId}>
-                    <td>{l.name}</td>
+                    <td>
+                      {l.name}
+                      {l.supportFor?.length ? (
+                        <span className="muted small">（为 {l.supportFor.join('、')} 合成供料）</span>
+                      ) : null}
+                    </td>
                     <td>{l.need}</td>
                     <td>{l.have}</td>
                     <td>{l.craftSuggestion > 0 ? `合成 ${l.craftSuggestion}` : '—'}</td>
@@ -149,8 +154,8 @@ export default function PlanPanel({ box, depot, dataset }: Props) {
           ) : null}
           <WarningsList warnings={result.warnings} />
           <p className="muted small">
-            合成建议只使用当前库存做单级合成（不链式展开），关卡按“每单位理智期望产出”择优；
-            语义细节见 README 路线图。
+            合成路线会链式展开（v0.3）：当直接刷取不如合成划算时，自动规划刷取更低级材料；同价时优先直接刷取。
+            语义细节见 README「评分与规划语义」。
           </p>
         </section>
       ) : null}

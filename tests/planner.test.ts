@@ -9,6 +9,7 @@ function tinyDataset(): Dataset {
       a: { id: 'a', name: '甲', tier: 1 },
       b: { id: 'b', name: '乙', tier: 2, craft: { inputs: [{ materialId: 'a', count: 3 }] } },
       c: { id: 'c', name: '丙', tier: 3, craft: { inputs: [{ materialId: 'b', count: 2 }] } },
+      d: { id: 'd', name: '丁', tier: 4, craft: { inputs: [{ materialId: 'c', count: 2 }] } },
     },
     operators: [],
     evolutionCosts: {},
@@ -66,16 +67,21 @@ describe('planFarming', () => {
     expect(r.totalSanity).toBe(0);
   });
 
-  it('用低级材料库存给出合成建议并扣减', () => {
+  it('合成比直接刷取划算时，自动向下规划低级材料（链式）', () => {
     const r = planFarming({ demand: [{ materialId: 'c', count: 2 }], depot: { b: 2 }, dataset: ds });
     const c = r.lines.find((l) => l.materialId === 'c')!;
-    expect(c.craftSuggestion).toBe(1); // 2 个乙只能合成 1 个丙
-    expect(c.toFarm).toBe(1);
-    expect(c.runs).toBe(2); // ceil(1 / 0.5)
-    expect(r.totalSanity).toBe(24);
+    expect(c.craftSuggestion).toBe(2); // 库存 2 乙 + 合成 2 乙 → 合成 2 丙
+    expect(c.toFarm).toBe(0);
+    const b = r.lines.find((l) => l.materialId === 'b')!;
+    expect(b.craftSuggestion).toBe(2); // 缺口 2 乙由甲合成
+    expect(b.supportFor).toContain('c');
+    const a = r.lines.find((l) => l.materialId === 'a')!;
+    expect(a.toFarm).toBe(6); // 刷 6 甲（S1，3 次 × 6 理智）供合成
+    expect(a.supportFor).toContain('b');
+    expect(r.totalSanity).toBe(18); // 远低于直接刷丙的 48
   });
 
-  it('低级材料优先消耗：先处理的乙用掉甲，丙只能刷', () => {
+  it('多需求共享库存：低级材料先被消耗，后续缺口链式展开', () => {
     const r = planFarming({
       demand: [
         { materialId: 'b', count: 1 },
@@ -86,19 +92,32 @@ describe('planFarming', () => {
     });
     const b = r.lines.find((l) => l.materialId === 'b')!;
     const c = r.lines.find((l) => l.materialId === 'c')!;
-    expect(b.craftSuggestion).toBe(1);
-    expect(b.toFarm).toBe(0);
-    expect(c.craftSuggestion).toBe(0); // 甲已被乙的合成用尽，且乙库存为 0
-    expect(c.toFarm).toBe(1);
+    expect(b.craftSuggestion).toBe(3); // 1 个自用 + 2 个为丙供料（库存甲耗尽后改为刷甲合成乙）
+    expect(b.supportFor).toContain('c');
+    expect(c.craftSuggestion).toBe(1);
+    expect(c.toFarm).toBe(0); // 直接刷丙需 24 理智，合成路线仅 18
+    expect(r.totalSanity).toBe(18);
+  });
+
+  it('四级链：无掉落材料通过配方递归获得', () => {
+    const r = planFarming({ demand: [{ materialId: 'd', count: 1 }], depot: {}, dataset: ds });
+    const d = r.lines.find((l) => l.materialId === 'd')!;
+    expect(d.craftSuggestion).toBe(1);
+    expect(d.stageCode).toBeUndefined();
+    expect(r.warnings).toHaveLength(0);
+    expect(r.totalSanity).toBe(36); // 递归到刷 12 甲（6 次 × 6 理智）
+    const a = r.lines.find((l) => l.materialId === 'a')!;
+    expect(a.toFarm).toBe(12);
+    expect(a.runs).toBe(6);
   });
 
   it('完全无来源的材料进入警告清单', () => {
     const broken: Dataset = {
       ...ds,
-      materials: { ...ds.materials, x: { id: 'x', name: '丁', tier: 4 } },
+      materials: { ...ds.materials, x: { id: 'x', name: '戊', tier: 4 } },
     };
     const r = planFarming({ demand: [{ materialId: 'x', count: 1 }], depot: {}, dataset: broken });
-    expect(r.warnings.some((w) => w.includes('丁'))).toBe(true);
+    expect(r.warnings.some((w) => w.includes('戊'))).toBe(true);
     expect(r.totalSanity).toBe(0);
   });
 

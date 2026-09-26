@@ -110,6 +110,8 @@ export interface PlanLine {
   stageCode?: string;
   runs?: number;
   sanity?: number;
+  /** 本材料的刷取/合成是为哪些材料供料（链式合成时出现） */
+  supportFor?: string[];
 }
 
 export interface StageSummary {
