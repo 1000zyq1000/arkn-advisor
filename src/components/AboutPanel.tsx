@@ -24,8 +24,8 @@ const SOURCE_STATUS: { name: string; state: '已内置' | '可用' | '待核实'
   },
   {
     name: 'MAA 干员识别 / 仓库识别导出',
-    state: '待核实',
-    note: '适配器接口已预留。必须对照 MAA 发布源码核实导出 JSON 的确切字段后实现（步骤见 CONTRIBUTING.md），当前不提供任何猜测实现。',
+    state: '可用',
+    note: '干员识别导出已实现严格解析——格式对照 MAA 官方发布源码（tag v6.18.0）逐文件核实，依据与行号见 NOTICE.md；仓库识别导出可经「通用 JSON」入口粘贴。',
   },
   {
     name: '企鹅物流数据统计',

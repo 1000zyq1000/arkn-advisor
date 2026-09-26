@@ -36,15 +36,15 @@ npm run build          # 类型检查 + 构建
 4. 为适配器提供测试与真实样例 fixtures；
 5. 涉及网络请求的适配器必须有超时与降级策略（回退到样例数据并明确提示）。
 
-## 如何核实并接入 MAA 导出格式（当前最高优先级）
+## 如何核实并接入 MAA 导出格式（已完成于 v0.4.0，以下流程留作后续版本升级时的复核规范）
 
-MAA 适配器目前为 TODO（`src/lib/import/index.ts` 中 `status: 'todo'`）。这是**有意的保守设计**：在格式被独立核实之前，不提供猜测实现。核实步骤：
+MAA 适配器（`src/lib/import/maa.ts`）已于 v0.4.0 按以下流程完成核实并接入，依据登记在 [NOTICE.md](NOTICE.md)。当 MAA 发布新版本、需要复核格式时，重复此流程：
 
 1. 从 MAA 官方渠道（GitHub Release 的源码包，或 `git clone` 对应 tag）获取与用户实际版本一致的源码；
 2. 在 GUI 侧定位「工具箱 / 识别导出」相关实现（ViewModel 层），在 Core 侧定位干员识别（`OperBoxRecognitionTask`）与仓库识别（`DepotRecognitionTask`）的回调序列化代码；
 3. **引用文件路径与行号**，记录导出 JSON 的确切字段结构；
-4. 开 Issue 附上引用与本地实测导出的样例 JSON（脱敏后），经讨论确认；
-5. 实现适配器 + fixtures + 测试，并在文档中声明兼容的 MAA 版本号。
+4. 对照 NOTICE.md 中已登记的 v6.18.0 依据，确认字段有无增删（如一图流扩展字段 `mainSkillLevel` / `skills` / `equips`）；
+5. 有变化时更新适配器、fixtures 与 NOTICE 登记，并在 PR 中附上新版的引用。
 
 > 经验教训：本项目开发过程中，曾因工具输出不可靠而差点基于未核实的格式实现适配器。任何“看起来很像”的格式都不算数——以官方源码引用 + 实测导出样本为准。
 

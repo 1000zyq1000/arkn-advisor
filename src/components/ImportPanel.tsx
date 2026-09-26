@@ -1,7 +1,8 @@
 /** 导入页：干员 box（JSON 导入 + 手动编辑）与材料库存。 */
 import { useState } from 'react';
 import type { Depot, Elite, OperBoxEntry } from '../lib/types';
-import { parseOperBoxJson, parseDepotJson } from '../lib/import/generic';
+import { OPER_BOX_ADAPTERS } from '../lib/import';
+import { parseDepotJson } from '../lib/import/generic';
 import { depotByNameToIds, SAMPLE_BOX, SAMPLE_DEPOT_BY_NAME } from '../lib/data';
 import { PROFESSIONS } from '../lib/types';
 import type { Dataset } from '../lib/types';
@@ -40,13 +41,16 @@ function BoxSummary({ box, dataset }: { box: Record<string, OperBoxEntry>; datas
 
 export default function ImportPanel({ box, depot, dataset, setBox, setDepot }: Props) {
   const [operJson, setOperJson] = useState('');
+  const [operAdapterId, setOperAdapterId] = useState('generic');
   const [operMsg, setOperMsg] = useState<{ warnings: string[]; ok?: string; error?: string }>({ warnings: [] });
   const [depotJson, setDepotJson] = useState('');
   const [depotMsg, setDepotMsg] = useState<{ warnings: string[]; ok?: string; error?: string }>({ warnings: [] });
 
   const importBox = () => {
+    const adapter = OPER_BOX_ADAPTERS.find((a) => a.id === operAdapterId);
+    if (!adapter?.parse) return;
     try {
-      const { value, warnings } = parseOperBoxJson(operJson);
+      const { value, warnings } = adapter.parse(operJson);
       const merged: Record<string, OperBoxEntry> = { ...box };
       for (const e of value) {
         const known = dataset.operators.some((o) => o.name === e.name);
@@ -101,9 +105,25 @@ export default function ImportPanel({ box, depot, dataset, setBox, setDepot }: P
       <section className="card">
         <h2>干员 Box</h2>
         <p className="muted">
-          支持粘贴通用 JSON（字段自动匹配 name / elite / level / potential 及其常见别名）。MAA
-          专用适配器待其导出格式核实后接入，届时无需改动核心逻辑。
+          「通用 JSON」宽容解析常见字段别名（name / elite / level / potential 及中文名）；「MAA
+          干员识别导出」严格解析 MAA 导出内容（格式已对照官方 v6.18.0 源码核实，own=false
+          的未拥有干员自动跳过，来源见数据说明页）。
         </p>
+        <div className="row" role="group" aria-label="box 导入格式">
+          {OPER_BOX_ADAPTERS.map((a) => (
+            <button
+              key={a.id}
+              className={`btn ${operAdapterId === a.id ? '' : 'btn-ghost'}`}
+              aria-pressed={operAdapterId === a.id}
+              onClick={() => {
+                setOperAdapterId(a.id);
+                setOperMsg({ warnings: [] });
+              }}
+            >
+              {a.label}
+            </button>
+          ))}
+        </div>
         <div className="row">
           <button
             className="btn"
