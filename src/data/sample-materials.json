@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "source": "SYNTHETIC_SAMPLE",
+    "note": "样例数据：材料名称采用游戏内常用名，但分级、合成配方与数值均为虚构，仅用于功能联调与演示。接入真实数据源后由适配器替换，禁止将本文件数值当作游戏攻略数据使用。",
+    "generatedAt": "2026-09-26"
+  },
+  "materials": [
+    { "id": "gold", "name": "龙门币", "tier": 4 },
+    { "id": "skill_v1", "name": "技巧概要·卷一", "tier": 1 },
+    { "id": "skill_v2", "name": "技巧概要·卷二", "tier": 2, "craft": { "inputs": [ { "materialId": "skill_v1", "count": 3 } ] } },
+    { "id": "skill_v3", "name": "技巧概要·卷三", "tier": 3, "craft": { "inputs": [ { "materialId": "skill_v2", "count": 3 } ] } },
+    { "id": "ore1", "name": "源岩", "tier": 1 },
+    { "id": "ore2", "name": "固源岩", "tier": 2, "craft": { "inputs": [ { "materialId": "ore1", "count": 3 } ] } },
+    { "id": "ore3", "name": "固源岩组", "tier": 3, "craft": { "inputs": [ { "materialId": "ore2", "count": 4 } ] } },
+    { "id": "fe1", "name": "异铁", "tier": 1 },
+    { "id": "fe2", "name": "异铁组", "tier": 2, "craft": { "inputs": [ { "materialId": "fe1", "count": 3 } ] } },
+    { "id": "fe3", "name": "异铁块", "tier": 3, "craft": { "inputs": [ { "materialId": "fe2", "count": 4 } ] } },
+    { "id": "sug1", "name": "糖", "tier": 1 },
+    { "id": "sug2", "name": "糖组", "tier": 2, "craft": { "inputs": [ { "materialId": "sug1", "count": 3 } ] } },
+    { "id": "sug3", "name": "糖聚块", "tier": 3, "craft": { "inputs": [ { "materialId": "sug2", "count": 4 } ] } },
+    { "id": "ket1", "name": "酮凝集", "tier": 1 },
+    { "id": "ket2", "name": "酮凝集组", "tier": 2, "craft": { "inputs": [ { "materialId": "ket1", "count": 3 } ] } },
+    { "id": "ket3", "name": "酮阵列", "tier": 3, "craft": { "inputs": [ { "materialId": "ket2", "count": 4 } ] } }
+  ]
+}

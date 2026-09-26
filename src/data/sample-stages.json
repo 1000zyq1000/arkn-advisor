@@ -1,0 +1,88 @@
+{
+  "_meta": {
+    "source": "SYNTHETIC_SAMPLE",
+    "note": "样例数据：关卡名带「样例」前缀，理智消耗与期望掉落均为虚构数值，不代表任何真实关卡的掉率。接入真实数据源后由适配器替换。",
+    "generatedAt": "2026-09-26"
+  },
+  "stages": [
+    {
+      "id": "smp-ls1",
+      "code": "样例-龙门币I",
+      "name": "样例关卡：龙门币小额",
+      "sanity": 15,
+      "drops": [ { "materialId": "gold", "expectPerRun": 12000 } ]
+    },
+    {
+      "id": "smp-ls2",
+      "code": "样例-龙门币II",
+      "name": "样例关卡：龙门币大额",
+      "sanity": 30,
+      "drops": [ { "materialId": "gold", "expectPerRun": 26000 } ]
+    },
+    {
+      "id": "smp-ore1",
+      "code": "样例-源岩",
+      "name": "样例关卡：源岩主产",
+      "sanity": 6,
+      "drops": [
+        { "materialId": "ore1", "expectPerRun": 2.0 },
+        { "materialId": "ore2", "expectPerRun": 0.45 }
+      ]
+    },
+    {
+      "id": "smp-ore2",
+      "code": "样例-固源岩",
+      "name": "样例关卡：固源岩主产",
+      "sanity": 15,
+      "drops": [
+        { "materialId": "ore1", "expectPerRun": 0.8 },
+        { "materialId": "ore2", "expectPerRun": 1.1 },
+        { "materialId": "ore3", "expectPerRun": 0.25 }
+      ]
+    },
+    {
+      "id": "smp-fe1",
+      "code": "样例-异铁",
+      "name": "样例关卡：异铁主产",
+      "sanity": 15,
+      "drops": [
+        { "materialId": "fe1", "expectPerRun": 1.6 },
+        { "materialId": "fe2", "expectPerRun": 0.5 },
+        { "materialId": "fe3", "expectPerRun": 0.12 }
+      ]
+    },
+    {
+      "id": "smp-sug1",
+      "code": "样例-糖",
+      "name": "样例关卡：糖主产",
+      "sanity": 15,
+      "drops": [
+        { "materialId": "sug1", "expectPerRun": 1.5 },
+        { "materialId": "sug2", "expectPerRun": 0.55 },
+        { "materialId": "sug3", "expectPerRun": 0.1 }
+      ]
+    },
+    {
+      "id": "smp-ket1",
+      "code": "样例-酮凝集",
+      "name": "样例关卡：酮凝集主产",
+      "sanity": 15,
+      "drops": [
+        { "materialId": "ket1", "expectPerRun": 1.6 },
+        { "materialId": "ket2", "expectPerRun": 0.5 },
+        { "materialId": "ket3", "expectPerRun": 0.12 }
+      ]
+    },
+    {
+      "id": "smp-skill",
+      "code": "样例-技巧概要",
+      "name": "样例关卡：技巧概要",
+      "sanity": 15,
+      "drops": [
+        { "materialId": "skill_v1", "expectPerRun": 2.0 },
+        { "materialId": "skill_v2", "expectPerRun": 1.6 },
+        { "materialId": "skill_v3", "expectPerRun": 1.0 }
+      ]
+    }
+  ]
+}

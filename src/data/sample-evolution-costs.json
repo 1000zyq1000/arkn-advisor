@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "source": "SYNTHETIC_SAMPLE",
+    "note": "样例数据：按稀有度区分的精英化消耗模板，全部数值为虚构（真实消耗因干员而异）。接入真实数据源后由适配器替换。",
+    "generatedAt": "2026-09-26"
+  },
+  "costs": {
+    "6": {
+      "phase1": [
+        { "materialId": "gold", "count": 30000 },
+        { "materialId": "skill_v2", "count": 5 },
+        { "materialId": "ore2", "count": 8 },
+        { "materialId": "sug2", "count": 4 }
+      ],
+      "phase2": [
+        { "materialId": "gold", "count": 180000 },
+        { "materialId": "skill_v3", "count": 8 },
+        { "materialId": "ore3", "count": 10 },
+        { "materialId": "sug3", "count": 8 },
+        { "materialId": "ket3", "count": 6 },
+        { "materialId": "fe3", "count": 6 }
+      ]
+    },
+    "5": {
+      "phase1": [
+        { "materialId": "gold", "count": 20000 },
+        { "materialId": "skill_v2", "count": 4 },
+        { "materialId": "sug2", "count": 5 },
+        { "materialId": "ket2", "count": 4 }
+      ],
+      "phase2": [
+        { "materialId": "gold", "count": 100000 },
+        { "materialId": "skill_v3", "count": 6 },
+        { "materialId": "ore3", "count": 6 },
+        { "materialId": "fe3", "count": 5 },
+        { "materialId": "sug3", "count": 5 }
+      ]
+    },
+    "4": {
+      "phase1": [
+        { "materialId": "gold", "count": 15000 },
+        { "materialId": "skill_v2", "count": 3 },
+        { "materialId": "ore2", "count": 4 }
+      ],
+      "phase2": [
+        { "materialId": "gold", "count": 60000 },
+        { "materialId": "skill_v3", "count": 4 },
+        { "materialId": "ore3", "count": 4 },
+        { "materialId": "ket3", "count": 4 }
+      ]
+    },
+    "3": {
+      "phase1": [
+        { "materialId": "gold", "count": 10000 },
+        { "materialId": "skill_v1", "count": 5 },
+        { "materialId": "ore1", "count": 8 }
+      ],
+      "phase2": [
+        { "materialId": "gold", "count": 30000 },
+        { "materialId": "skill_v2", "count": 4 },
+        { "materialId": "sug2", "count": 3 },
+        { "materialId": "ket2", "count": 3 }
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "_meta": {
+    "source": "SYNTHETIC_SAMPLE",
+    "note": "样例数据：干员名称与职业/稀有度为公开常识信息，tags 与全部数值为本项目演示用标注，不代表强度结论。接入真实数据源后由适配器替换。",
+    "generatedAt": "2026-09-26"
+  },
+  "operators": [
+    { "name": "阿米娅", "rarity": 5, "profession": "术师", "tags": ["输出", "法术伤害"] },
+    { "name": "能天使", "rarity": 6, "profession": "狙击", "tags": ["输出", "群攻"] },
+    { "name": "银灰", "rarity": 6, "profession": "近卫", "tags": ["输出", "群攻", "支援"] },
+    { "name": "艾雅法拉", "rarity": 6, "profession": "术师", "tags": ["输出", "群攻", "法术伤害"] },
+    { "name": "史尔特尔", "rarity": 6, "profession": "术师", "tags": ["输出", "爆发", "法术伤害"] },
+    { "name": "棘刺", "rarity": 6, "profession": "近卫", "tags": ["输出", "生存"] },
+    { "name": "山", "rarity": 6, "profession": "近卫", "tags": ["输出", "群攻", "生存"] },
+    { "name": "风笛", "rarity": 6, "profession": "先锋", "tags": ["费用回复", "输出", "爆发"] },
+    { "name": "塞雷娅", "rarity": 6, "profession": "重装", "tags": ["防护", "治疗", "支援"] },
+    { "name": "夜莺", "rarity": 6, "profession": "医疗", "tags": ["治疗", "支援"] },
+    { "name": "德克萨斯", "rarity": 5, "profession": "先锋", "tags": ["费用回复", "控场"] },
+    { "name": "铃兰", "rarity": 5, "profession": "辅助", "tags": ["减速", "支援"] },
+    { "name": "白面鸮", "rarity": 5, "profession": "医疗", "tags": ["治疗", "支援"] },
+    { "name": "幽灵鲨", "rarity": 5, "profession": "近卫", "tags": ["输出", "生存"] },
+    { "name": "陨星", "rarity": 5, "profession": "狙击", "tags": ["输出", "群攻"] },
+    { "name": "桃金娘", "rarity": 4, "profession": "先锋", "tags": ["费用回复"] },
+    { "name": "慕斯", "rarity": 4, "profession": "近卫", "tags": ["输出", "法术伤害"] },
+    { "name": "苏苏洛", "rarity": 4, "profession": "医疗", "tags": ["治疗"] },
+    { "name": "芬", "rarity": 3, "profession": "先锋", "tags": ["费用回复"] },
+    { "name": "讯使", "rarity": 3, "profession": "先锋", "tags": ["费用回复", "防护"] },
+    { "name": "玫兰莎", "rarity": 3, "profession": "近卫", "tags": ["输出"] },
+    { "name": "克洛丝", "rarity": 3, "profession": "狙击", "tags": ["输出"] },
+    { "name": "安赛尔", "rarity": 3, "profession": "医疗", "tags": ["治疗"] },
+    { "name": "炎熔", "rarity": 3, "profession": "术师", "tags": ["输出", "群攻", "法术伤害"] }
+  ]
+}
