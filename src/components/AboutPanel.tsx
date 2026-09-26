@@ -13,9 +13,14 @@ const STATUS_LABEL: Record<string, string> = {
 
 const SOURCE_STATUS: { name: string; state: '已内置' | '可用' | '待核实' | '规划中'; note: string }[] = [
   {
+    name: '真实游戏数据（默认）',
+    state: '可用',
+    note: '干员 429 名、材料与合成配方、按干员的精英化消耗、主线与资源关掉落列表 —— 全部数值转换自游戏数据提取（Kengxxiao/ArknightsGameData，blob SHA 核验记录见 NOTICE.md）。期望掉率与挑战关卡机制标注尚无真实来源，见下。',
+  },
+  {
     name: '内置样例数据集',
     state: '已内置',
-    note: '合成数值（材料/关卡/消耗均为虚构），仅用于演示与联调，UI 顶部横幅常驻提示。',
+    note: '合成数值（材料/关卡/消耗均为虚构），可通过顶部数据源切换选中，仅用于演示与对照。',
   },
   {
     name: '通用 JSON 导入',
@@ -28,14 +33,19 @@ const SOURCE_STATUS: { name: string; state: '已内置' | '可用' | '待核实'
     note: '干员识别导出已实现严格解析——格式对照 MAA 官方发布源码（tag v6.18.0）逐文件核实，依据与行号见 NOTICE.md；仓库识别导出可经「通用 JSON」入口粘贴。',
   },
   {
-    name: '企鹅物流数据统计',
-    state: '规划中',
-    note: '用于真实掉率与刷图效率；接入前需确认其 API 与数据许可并登记 NOTICE。',
+    name: '真实掉率（刷图规划的关键）',
+    state: '待核实',
+    note: '期望掉率不在游戏数据中。企鹅物流 API 已实测可用（记录见 NOTICE.md），但书面数据条款尚未确认 —— 确认后接入，刷图规划自动完整。',
   },
   {
-    name: '一图流 / PRTS',
+    name: '挑战关卡机制标注',
     state: '规划中',
-    note: '养成效率与干员资料数据源候选，同样需先核实许可与接口。',
+    note: '「按目标关卡」推荐需要人工核实的关卡机制标注（编辑性数据），真实数据集下暂为空。',
+  },
+  {
+    name: 'PRTS Wiki',
+    state: '规划中',
+    note: '干员资料扩展候选，同样需先核实许可。',
   },
 ];
 

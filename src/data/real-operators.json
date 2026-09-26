@@ -1,0 +1,3796 @@
+{
+  "_meta": {
+    "source": "GAME_DATA",
+    "sourceRepo": "Kengxxiao/ArknightsGameData",
+    "sourceBlobs": {
+      "character_table.json": "62d81cb4623b9960c028004f638be27ef15c9641",
+      "item_table.json": "c5322d45630b9d74a68b187e87ef11e6983b937d",
+      "building_data.json": "6a61e7fb9b6a9eec357da7441c25816e808f31cf",
+      "stage_table.json": "295aaf42807cc3e0cf050b6ef0cd96837fd35547"
+    },
+    "fetchedAt": "2026-09-26",
+    "generatedAt": "2026-09-26",
+    "extraction": "本地 git hash-object 与 GitHub contents API 报告的 blob SHA 逐文件对账一致",
+    "note": "真实干员名单（名称/稀有度/职业/公招标签）。全部数值直接转换自游戏数据提取（未修改、未虚构）；期望掉率不在游戏数据中（置 0），刷取规划待企鹅物流等真实掉率来源接入后启用；干员精英化消耗不含龙门币（游戏数据该版本未随 phases 提供）。同名的多形态干员（如阿米娅的多形态）仅保留基础形态。"
+  },
+  "operators": [
+    {
+      "name": "阿米娅",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "凯尔希",
+      "rarity": 6,
+      "profession": "医疗",
+      "tags": [
+        "召唤",
+        "治疗"
+      ]
+    },
+    {
+      "name": "12F",
+      "rarity": 2,
+      "profession": "术师",
+      "tags": [
+        "新手"
+      ]
+    },
+    {
+      "name": "陈",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "爆发",
+        "输出"
+      ]
+    },
+    {
+      "name": "煌",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "空",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "治疗"
+      ]
+    },
+    {
+      "name": "炎狱炎熔",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "浊心斯卡蒂",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "生存",
+        "输出"
+      ]
+    },
+    {
+      "name": "假日威龙陈",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "群攻"
+      ]
+    },
+    {
+      "name": "耀骑士临光",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "予愿安洁莉娜",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "高空",
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "纯烬艾雅法拉",
+      "rarity": 6,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "维娜·维多利亚",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "德克萨斯",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "控场"
+      ]
+    },
+    {
+      "name": "焰影苇草",
+      "rarity": 6,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "输出",
+        "削弱"
+      ]
+    },
+    {
+      "name": "寒芒克洛丝",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "撷英调香师",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "生存"
+      ]
+    },
+    {
+      "name": "归溟幽灵鲨",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "输出",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "濯尘芙蓉",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "百炼嘉维尔",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "爆发",
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "承曦格雷伊",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "减速"
+      ]
+    },
+    {
+      "name": "缄默德克萨斯",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "输出"
+      ]
+    },
+    {
+      "name": "麒麟R夜刀",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "爆发"
+      ]
+    },
+    {
+      "name": "能天使",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "火龙S黑角",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "生存",
+        "输出"
+      ]
+    },
+    {
+      "name": "淬羽赫默",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "生存",
+        "治疗"
+      ]
+    },
+    {
+      "name": "圣约送葬人",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "琳琅诗怀雅",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "爆发"
+      ]
+    },
+    {
+      "name": "涤火杰西卡",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "生存",
+        "输出"
+      ]
+    },
+    {
+      "name": "维什戴尔",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "历阵锐枪芬",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "输出"
+      ]
+    },
+    {
+      "name": "荒芜拉普兰德",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "输出",
+        "削弱"
+      ]
+    },
+    {
+      "name": "引星棘刺",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "输出",
+        "支援",
+        "削弱"
+      ]
+    },
+    {
+      "name": "烛煌",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "元素",
+        "输出",
+        "群攻"
+      ]
+    },
+    {
+      "name": "新约能天使",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "酒神",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "元素",
+        "控场"
+      ]
+    },
+    {
+      "name": "司霆惊蛰",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "爆发"
+      ]
+    },
+    {
+      "name": "斩业星熊",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "凛御银灰",
+      "rarity": 6,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "支援"
+      ]
+    },
+    {
+      "name": "圣聆初雪",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "控场"
+      ]
+    },
+    {
+      "name": "溯光星源",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "减速",
+        "支援",
+        "输出"
+      ]
+    },
+    {
+      "name": "焰狐龙梓兰",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "雷狼龙S空爆",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "群攻",
+        "输出",
+        "爆发"
+      ]
+    },
+    {
+      "name": "赤刃明霄陈",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "爆发",
+        "输出"
+      ]
+    },
+    {
+      "name": "怒潮凛冬",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "凯尔希·思衡托",
+      "rarity": 6,
+      "profession": "医疗",
+      "tags": [
+        "高空",
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "芙兰卡",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "雷蛇",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "输出"
+      ]
+    },
+    {
+      "name": "赫默",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "远山",
+      "rarity": 4,
+      "profession": "术师",
+      "tags": [
+        "群攻"
+      ]
+    },
+    {
+      "name": "深海色",
+      "rarity": 4,
+      "profession": "辅助",
+      "tags": [
+        "召唤"
+      ]
+    },
+    {
+      "name": "推进之王",
+      "rarity": 6,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "输出"
+      ]
+    },
+    {
+      "name": "W",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "凛冬",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "支援"
+      ]
+    },
+    {
+      "name": "末药",
+      "rarity": 4,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "白雪",
+      "rarity": 4,
+      "profession": "狙击",
+      "tags": [
+        "群攻",
+        "减速"
+      ]
+    },
+    {
+      "name": "芙蓉",
+      "rarity": 3,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "炎熔",
+      "rarity": 3,
+      "profession": "术师",
+      "tags": [
+        "群攻"
+      ]
+    },
+    {
+      "name": "米格鲁",
+      "rarity": 3,
+      "profession": "重装",
+      "tags": [
+        "防护"
+      ]
+    },
+    {
+      "name": "芬",
+      "rarity": 3,
+      "profession": "先锋",
+      "tags": [
+        "费用回复"
+      ]
+    },
+    {
+      "name": "克洛丝",
+      "rarity": 3,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "流星",
+      "rarity": 4,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "削弱"
+      ]
+    },
+    {
+      "name": "艾丝黛尔",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "群攻",
+        "生存"
+      ]
+    },
+    {
+      "name": "白面鸮",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "蓝毒",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "杜宾",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "炎客",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "梅",
+      "rarity": 4,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "减速"
+      ]
+    },
+    {
+      "name": "伊芙利特",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "削弱"
+      ]
+    },
+    {
+      "name": "星源",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "星熊",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "输出"
+      ]
+    },
+    {
+      "name": "猎蜂",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "拉普兰德",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "削弱"
+      ]
+    },
+    {
+      "name": "夜烟",
+      "rarity": 4,
+      "profession": "术师",
+      "tags": [
+        "输出",
+        "削弱"
+      ]
+    },
+    {
+      "name": "幽灵鲨",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "群攻",
+        "生存"
+      ]
+    },
+    {
+      "name": "红",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "控场"
+      ]
+    },
+    {
+      "name": "普罗旺斯",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "闪灵",
+      "rarity": 6,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "临光",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "治疗"
+      ]
+    },
+    {
+      "name": "清道夫",
+      "rarity": 4,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "输出"
+      ]
+    },
+    {
+      "name": "蛇屠箱",
+      "rarity": 4,
+      "profession": "重装",
+      "tags": [
+        "防护"
+      ]
+    },
+    {
+      "name": "弑君者",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "快速复活"
+      ]
+    },
+    {
+      "name": "桃金娘",
+      "rarity": 4,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "治疗"
+      ]
+    },
+    {
+      "name": "摩根",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "因陀罗",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "达格达",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "守林人",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "爆发"
+      ]
+    },
+    {
+      "name": "断罪者",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存",
+        "控场",
+        "爆发"
+      ]
+    },
+    {
+      "name": "火神",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "生存",
+        "防护",
+        "输出"
+      ]
+    },
+    {
+      "name": "夜魔",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出",
+        "治疗",
+        "减速"
+      ]
+    },
+    {
+      "name": "天火",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "控场"
+      ]
+    },
+    {
+      "name": "华法琳",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "银灰",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "崖心",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "位移",
+        "输出"
+      ]
+    },
+    {
+      "name": "初雪",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "削弱"
+      ]
+    },
+    {
+      "name": "夜莺",
+      "rarity": 6,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "艾雅法拉",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "输出",
+        "削弱"
+      ]
+    },
+    {
+      "name": "调香师",
+      "rarity": 4,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "地灵",
+      "rarity": 4,
+      "profession": "辅助",
+      "tags": [
+        "减速"
+      ]
+    },
+    {
+      "name": "慕斯",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "嘉维尔",
+      "rarity": 4,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "赫拉格",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "红云",
+      "rarity": 4,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "翎羽",
+      "rarity": 3,
+      "profession": "先锋",
+      "tags": [
+        "输出",
+        "费用回复"
+      ]
+    },
+    {
+      "name": "霜叶",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "减速",
+        "输出"
+      ]
+    },
+    {
+      "name": "烈夏",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "真理",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "减速",
+        "输出"
+      ]
+    },
+    {
+      "name": "古米",
+      "rarity": 4,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "治疗"
+      ]
+    },
+    {
+      "name": "早露",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "讯使",
+      "rarity": 4,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "防护"
+      ]
+    },
+    {
+      "name": "角峰",
+      "rarity": 4,
+      "profession": "重装",
+      "tags": [
+        "防护"
+      ]
+    },
+    {
+      "name": "可颂",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "位移"
+      ]
+    },
+    {
+      "name": "提丰",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "刻俄柏",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "年",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "支援"
+      ]
+    },
+    {
+      "name": "夕",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "塞雷娅",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "令",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "召唤",
+        "支援",
+        "控场"
+      ]
+    },
+    {
+      "name": "重岳",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "爆发"
+      ]
+    },
+    {
+      "name": "黍",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "余",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "元素",
+        "防护"
+      ]
+    },
+    {
+      "name": "望",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "召唤",
+        "输出"
+      ]
+    },
+    {
+      "name": "白金",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "灵知",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "削弱"
+      ]
+    },
+    {
+      "name": "玫兰莎",
+      "rarity": 3,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "卡缇",
+      "rarity": 3,
+      "profession": "重装",
+      "tags": [
+        "防护"
+      ]
+    },
+    {
+      "name": "史都华德",
+      "rarity": 3,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "安德切尔",
+      "rarity": 3,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "安赛尔",
+      "rarity": 3,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "莫斯提马",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "支援",
+        "控场"
+      ]
+    },
+    {
+      "name": "卡夫卡",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "控场"
+      ]
+    },
+    {
+      "name": "狮蝎",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "安哲拉",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "减速"
+      ]
+    },
+    {
+      "name": "陨星",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "群攻",
+        "削弱"
+      ]
+    },
+    {
+      "name": "格拉尼",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "防护"
+      ]
+    },
+    {
+      "name": "风笛",
+      "rarity": 6,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "输出"
+      ]
+    },
+    {
+      "name": "阿",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "支援",
+        "输出"
+      ]
+    },
+    {
+      "name": "吽",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "治疗"
+      ]
+    },
+    {
+      "name": "暴行",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "群攻",
+        "爆发"
+      ]
+    },
+    {
+      "name": "杰西卡",
+      "rarity": 4,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "暗索",
+      "rarity": 4,
+      "profession": "特种",
+      "tags": [
+        "位移"
+      ]
+    },
+    {
+      "name": "砾",
+      "rarity": 4,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "防护"
+      ]
+    },
+    {
+      "name": "香草",
+      "rarity": 3,
+      "profession": "先锋",
+      "tags": [
+        "费用回复"
+      ]
+    },
+    {
+      "name": "食铁兽",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "位移",
+        "减速"
+      ]
+    },
+    {
+      "name": "梅尔",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "召唤",
+        "控场"
+      ]
+    },
+    {
+      "name": "槐琥",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "削弱"
+      ]
+    },
+    {
+      "name": "塑心",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "元素",
+        "支援"
+      ]
+    },
+    {
+      "name": "麦哲伦",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "减速",
+        "输出"
+      ]
+    },
+    {
+      "name": "缪尔赛思",
+      "rarity": 6,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "控场"
+      ]
+    },
+    {
+      "name": "傀影",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "控场",
+        "输出"
+      ]
+    },
+    {
+      "name": "柏喙",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "爆发",
+        "输出"
+      ]
+    },
+    {
+      "name": "格雷伊",
+      "rarity": 4,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "减速"
+      ]
+    },
+    {
+      "name": "巫恋",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "削弱"
+      ]
+    },
+    {
+      "name": "波登可",
+      "rarity": 4,
+      "profession": "辅助",
+      "tags": [
+        "减速",
+        "治疗"
+      ]
+    },
+    {
+      "name": "坚雷",
+      "rarity": 4,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "输出"
+      ]
+    },
+    {
+      "name": "苇草",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "输出"
+      ]
+    },
+    {
+      "name": "斯卡蒂",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "山",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "鞭刃",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "芳汀",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "孑",
+      "rarity": 4,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "输出"
+      ]
+    },
+    {
+      "name": "星极",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "防护"
+      ]
+    },
+    {
+      "name": "微风",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "阿消",
+      "rarity": 4,
+      "profession": "特种",
+      "tags": [
+        "位移"
+      ]
+    },
+    {
+      "name": "梓兰",
+      "rarity": 3,
+      "profession": "辅助",
+      "tags": [
+        "减速"
+      ]
+    },
+    {
+      "name": "送葬人",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "群攻"
+      ]
+    },
+    {
+      "name": "泡普卡",
+      "rarity": 3,
+      "profession": "近卫",
+      "tags": [
+        "群攻",
+        "生存"
+      ]
+    },
+    {
+      "name": "空爆",
+      "rarity": 3,
+      "profession": "狙击",
+      "tags": [
+        "群攻"
+      ]
+    },
+    {
+      "name": "月见夜",
+      "rarity": 3,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "斑点",
+      "rarity": 3,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "治疗"
+      ]
+    },
+    {
+      "name": "Lancet-2",
+      "rarity": 1,
+      "profession": "医疗",
+      "tags": [
+        "支援机械",
+        "治疗"
+      ]
+    },
+    {
+      "name": "Castle-3",
+      "rarity": 1,
+      "profession": "近卫",
+      "tags": [
+        "支援机械",
+        "支援"
+      ]
+    },
+    {
+      "name": "缠丸",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "生存",
+        "输出"
+      ]
+    },
+    {
+      "name": "红豆",
+      "rarity": 4,
+      "profession": "先锋",
+      "tags": [
+        "输出",
+        "费用回复"
+      ]
+    },
+    {
+      "name": "安洁莉娜",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "减速",
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "棘刺",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "防护"
+      ]
+    },
+    {
+      "name": "断崖",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "群攻"
+      ]
+    },
+    {
+      "name": "和弦",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "苏苏洛",
+      "rarity": 4,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "菲亚梅塔",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "刻刀",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "爆发",
+        "输出"
+      ]
+    },
+    {
+      "name": "安比尔",
+      "rarity": 4,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "减速"
+      ]
+    },
+    {
+      "name": "暴雨",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "支援"
+      ]
+    },
+    {
+      "name": "惊蛰",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "诗怀雅",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "泥岩",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "生存",
+        "防护",
+        "输出"
+      ]
+    },
+    {
+      "name": "老鲤",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "生存",
+        "输出"
+      ]
+    },
+    {
+      "name": "拜松",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护"
+      ]
+    },
+    {
+      "name": "格劳克斯",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "减速",
+        "控场"
+      ]
+    },
+    {
+      "name": "卡达",
+      "rarity": 4,
+      "profession": "术师",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "空弦",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "铸铁",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "生存",
+        "输出"
+      ]
+    },
+    {
+      "name": "稀音",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "召唤",
+        "支援"
+      ]
+    },
+    {
+      "name": "宴",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "爱丽丝",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "黑",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "寒檀",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "控场"
+      ]
+    },
+    {
+      "name": "月禾",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "生存"
+      ]
+    },
+    {
+      "name": "蜜蜡",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "防护"
+      ]
+    },
+    {
+      "name": "亚叶",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "输出"
+      ]
+    },
+    {
+      "name": "奥斯塔",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "群攻"
+      ]
+    },
+    {
+      "name": "杰克",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "锡兰",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "贾维",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "输出"
+      ]
+    },
+    {
+      "name": "史尔特尔",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "伊桑",
+      "rarity": 4,
+      "profession": "特种",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "布洛卡",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "群攻",
+        "生存"
+      ]
+    },
+    {
+      "name": "铃兰",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "减速",
+        "支援",
+        "输出"
+      ]
+    },
+    {
+      "name": "嵯峨",
+      "rarity": 6,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "输出"
+      ]
+    },
+    {
+      "name": "熔泉",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "四月",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "酸糖",
+      "rarity": 4,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "灰喉",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "贝娜",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "输出",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "莱恩哈特",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "爆发"
+      ]
+    },
+    {
+      "name": "THRM-EX",
+      "rarity": 1,
+      "profession": "特种",
+      "tags": [
+        "支援机械",
+        "爆发"
+      ]
+    },
+    {
+      "name": "澄闪",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "石棉",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "输出"
+      ]
+    },
+    {
+      "name": "慑砂",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "群攻",
+        "削弱"
+      ]
+    },
+    {
+      "name": "泡泡",
+      "rarity": 4,
+      "profession": "重装",
+      "tags": [
+        "防护"
+      ]
+    },
+    {
+      "name": "雪雉",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "位移",
+        "减速"
+      ]
+    },
+    {
+      "name": "清流",
+      "rarity": 4,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "薄绿",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "控场"
+      ]
+    },
+    {
+      "name": "迷迭香",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "哈蒂娅",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "控场",
+        ""
+      ]
+    },
+    {
+      "name": "温蒂",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "位移",
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "正义骑士号",
+      "rarity": 1,
+      "profession": "狙击",
+      "tags": [
+        "支援机械",
+        "支援"
+      ]
+    },
+    {
+      "name": "布丁",
+      "rarity": 4,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "玫拉",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "爆发"
+      ]
+    },
+    {
+      "name": "艾丽妮",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "爆发",
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "极境",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "支援"
+      ]
+    },
+    {
+      "name": "隐德来希",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "止颂",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "耶拉",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "子月",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "空构",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "支援",
+        "输出"
+      ]
+    },
+    {
+      "name": "风丸",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "输出",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "谜图",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "九色鹿",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "生存"
+      ]
+    },
+    {
+      "name": "图耶",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "红隼",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "输出"
+      ]
+    },
+    {
+      "name": "暮落",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "输出",
+        "防护"
+      ]
+    },
+    {
+      "name": "忍冬",
+      "rarity": 6,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "输出"
+      ]
+    },
+    {
+      "name": "霍尔海雅",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "复奏",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "输出"
+      ]
+    },
+    {
+      "name": "但书",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "削弱",
+        "减速"
+      ]
+    },
+    {
+      "name": "见行者",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "位移",
+        "控场"
+      ]
+    },
+    {
+      "name": "贝洛内",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "削弱"
+      ]
+    },
+    {
+      "name": "号角",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "输出",
+        "防护"
+      ]
+    },
+    {
+      "name": "洛洛",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "褐果",
+      "rarity": 4,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "流明",
+      "rarity": 6,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "埃拉托",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "海蒂",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "治疗"
+      ]
+    },
+    {
+      "name": "黑键",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "车尔尼",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "输出"
+      ]
+    },
+    {
+      "name": "多萝西",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "召唤",
+        "控场"
+      ]
+    },
+    {
+      "name": "苦艾",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "协律",
+      "rarity": 4,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "输出"
+      ]
+    },
+    {
+      "name": "寻澜",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "至简",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "鸿雪",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "缇缇",
+      "rarity": 6,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "防护",
+        "控场"
+      ]
+    },
+    {
+      "name": "佩佩",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "铅踝",
+      "rarity": 4,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "石英",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "玛恩纳",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "爆发"
+      ]
+    },
+    {
+      "name": "斥罪",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "生存",
+        "输出"
+      ]
+    },
+    {
+      "name": "海沫",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "罗小黑",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "明椒",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "白铁",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "输出"
+      ]
+    },
+    {
+      "name": "泰拉大陆调查团",
+      "rarity": 1,
+      "profession": "狙击",
+      "tags": [
+        "控场"
+      ]
+    },
+    {
+      "name": "截云",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "群攻",
+        "减速"
+      ]
+    },
+    {
+      "name": "海霓",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "削弱"
+      ]
+    },
+    {
+      "name": "林",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "防护"
+      ]
+    },
+    {
+      "name": "温米",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "元素",
+        "爆发"
+      ]
+    },
+    {
+      "name": "仇白",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "铎铃",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "伊内丝",
+      "rarity": 6,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "赫德雷",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "U-Official",
+      "rarity": 1,
+      "profession": "辅助",
+      "tags": [
+        "控场"
+      ]
+    },
+    {
+      "name": "Friston-3",
+      "rarity": 1,
+      "profession": "重装",
+      "tags": [
+        "支援机械",
+        "防护"
+      ]
+    },
+    {
+      "name": "薇薇安娜",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "跃跃",
+      "rarity": 4,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "凛视",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "元素"
+      ]
+    },
+    {
+      "name": "冰酿",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "杏仁",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "位移"
+      ]
+    },
+    {
+      "name": "苍苔",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "维荻",
+      "rarity": 4,
+      "profession": "特种",
+      "tags": [
+        "生存",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "深律",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "治疗"
+      ]
+    },
+    {
+      "name": "特米米",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "戴菲恩",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "哈洛德",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "锏",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "爆发",
+        "输出",
+        "削弱"
+      ]
+    },
+    {
+      "name": "莱伊",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "万顷",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "支援"
+      ]
+    },
+    {
+      "name": "左乐",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "小满",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "减速",
+        "控场"
+      ]
+    },
+    {
+      "name": "艾拉",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "召唤",
+        "控场",
+        "输出"
+      ]
+    },
+    {
+      "name": "双月",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "削弱",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "医生",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "导火索",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "群攻",
+        "生存"
+      ]
+    },
+    {
+      "name": "露托",
+      "rarity": 4,
+      "profession": "重装",
+      "tags": [
+        "生存",
+        "防护"
+      ]
+    },
+    {
+      "name": "奥达",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "群攻",
+        "控场"
+      ]
+    },
+    {
+      "name": "阿斯卡纶",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "减速",
+        "输出"
+      ]
+    },
+    {
+      "name": "逻各斯",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "魔王",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "生存",
+        "输出"
+      ]
+    },
+    {
+      "name": "PhonoR-0",
+      "rarity": 1,
+      "profession": "辅助",
+      "tags": [
+        "支援机械",
+        "元素"
+      ]
+    },
+    {
+      "name": "深巡",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "输出",
+        "减速"
+      ]
+    },
+    {
+      "name": "娜仁图亚",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "莎草",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "衡沙",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "召唤",
+        "减速"
+      ]
+    },
+    {
+      "name": "玛露西尔",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "治疗",
+        "控场"
+      ]
+    },
+    {
+      "name": "莱欧斯",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "森西",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "治疗"
+      ]
+    },
+    {
+      "name": "齐尔查克",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "乌尔比安",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "妮芙",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "元素",
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "渡桥",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "爆发"
+      ]
+    },
+    {
+      "name": "菲莱",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "元素",
+        "防护"
+      ]
+    },
+    {
+      "name": "燧石",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "锡人",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "削弱",
+        "支援"
+      ]
+    },
+    {
+      "name": "裁度",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "控场"
+      ]
+    },
+    {
+      "name": "森蚺",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "输出",
+        "生存",
+        "防护"
+      ]
+    },
+    {
+      "name": "凯瑟琳",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "防护",
+        "支援"
+      ]
+    },
+    {
+      "name": "瑰盐",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "支援"
+      ]
+    },
+    {
+      "name": "特克诺",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "召唤"
+      ]
+    },
+    {
+      "name": "云迹",
+      "rarity": 4,
+      "profession": "特种",
+      "tags": [
+        "高空",
+        "控场"
+      ]
+    },
+    {
+      "name": "摆渡人",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "群攻",
+        "生存"
+      ]
+    },
+    {
+      "name": "钼铅",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "召唤",
+        "削弱"
+      ]
+    },
+    {
+      "name": "行箸",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "生存"
+      ]
+    },
+    {
+      "name": "诺威尔",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "水灯心",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "阿兰娜",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "Mon3tr",
+      "rarity": 6,
+      "profession": "医疗",
+      "tags": [
+        "治疗",
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "丰川祥子",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "若叶睦",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "防护",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "三角初华",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "治疗"
+      ]
+    },
+    {
+      "name": "祐天寺若麦",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "群攻",
+        "输出",
+        "削弱"
+      ]
+    },
+    {
+      "name": "八幡海铃",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "聆音",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "爆发",
+        "输出"
+      ]
+    },
+    {
+      "name": "CONFESS-47",
+      "rarity": 1,
+      "profession": "先锋",
+      "tags": [
+        "支援机械",
+        "控场"
+      ]
+    },
+    {
+      "name": "蒂比",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "高空",
+        "生存"
+      ]
+    },
+    {
+      "name": "蕾缪安",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出",
+        "爆发"
+      ]
+    },
+    {
+      "name": "信仰搅拌机",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "电弧",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "召唤",
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "录武官",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "Miss.Christine",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "元素",
+        "输出"
+      ]
+    },
+    {
+      "name": "松桐",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "支援"
+      ]
+    },
+    {
+      "name": "焰尾",
+      "rarity": 6,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "生存"
+      ]
+    },
+    {
+      "name": "遥",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "生存",
+        "治疗"
+      ]
+    },
+    {
+      "name": "吉星",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "群攻"
+      ]
+    },
+    {
+      "name": "真言",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "元素",
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "折桠",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "生存"
+      ]
+    },
+    {
+      "name": "冬时",
+      "rarity": 4,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "羽毛笔",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "雪猎",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "爆发",
+        "控场"
+      ]
+    },
+    {
+      "name": "娜斯提",
+      "rarity": 6,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "防护"
+      ]
+    },
+    {
+      "name": "天空盒",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "群攻"
+      ]
+    },
+    {
+      "name": "响石",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "元素",
+        "防护"
+      ]
+    },
+    {
+      "name": "罗德岛隐秘队",
+      "rarity": 1,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "控场"
+      ]
+    },
+    {
+      "name": "结城理",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "输出",
+        "快速复活",
+        "治疗"
+      ]
+    },
+    {
+      "name": "埃癸斯",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "群攻"
+      ]
+    },
+    {
+      "name": "岳羽由加莉",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "极光",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "输出",
+        "防护"
+      ]
+    },
+    {
+      "name": "虎狼丸",
+      "rarity": 1,
+      "profession": "近卫",
+      "tags": [
+        "爆发",
+        "控场"
+      ]
+    },
+    {
+      "name": "矩",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "风絮",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "伯塔尼",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "元素"
+      ]
+    },
+    {
+      "name": "乌啾",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "裂响",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "元素",
+        "生存"
+      ]
+    },
+    {
+      "name": "维伊",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "GALLUS²",
+      "rarity": 1,
+      "profession": "术师",
+      "tags": [
+        "支援机械",
+        "削弱"
+      ]
+    },
+    {
+      "name": "可露希尔",
+      "rarity": 6,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "控场"
+      ]
+    },
+    {
+      "name": "谬因",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "输出"
+      ]
+    },
+    {
+      "name": "瑕光",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "治疗",
+        "输出"
+      ]
+    },
+    {
+      "name": "机械师",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "生存",
+        "召唤",
+        "输出"
+      ]
+    },
+    {
+      "name": "佩德洛",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "珊比",
+      "rarity": 6,
+      "profession": "重装",
+      "tags": [
+        "元素",
+        "防护"
+      ]
+    },
+    {
+      "name": "时隙",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "嘉辛塔",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "防护"
+      ]
+    },
+    {
+      "name": "卡涅利安",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "防护"
+      ]
+    },
+    {
+      "name": "伺夜",
+      "rarity": 6,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "控场"
+      ]
+    },
+    {
+      "name": "远牙",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "灰毫",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "输出",
+        "防护"
+      ]
+    },
+    {
+      "name": "掠风",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "絮雨",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "水月",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "松果",
+      "rarity": 4,
+      "profession": "狙击",
+      "tags": [
+        "群攻",
+        "输出"
+      ]
+    },
+    {
+      "name": "骋风",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "爆发"
+      ]
+    },
+    {
+      "name": "阿罗玛",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "控场"
+      ]
+    },
+    {
+      "name": "蜜莓",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "死芒",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "召唤",
+        "输出"
+      ]
+    },
+    {
+      "name": "罗宾",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "召唤",
+        "位移"
+      ]
+    },
+    {
+      "name": "豆苗",
+      "rarity": 4,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "召唤"
+      ]
+    },
+    {
+      "name": "乌有",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "快速复活",
+        "输出"
+      ]
+    },
+    {
+      "name": "灰烬",
+      "rarity": 6,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "闪击",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护",
+        "输出"
+      ]
+    },
+    {
+      "name": "霜华",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "召唤",
+        "控场"
+      ]
+    },
+    {
+      "name": "战车",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "爆发",
+        "输出"
+      ]
+    },
+    {
+      "name": "洋灰",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "防护"
+      ]
+    },
+    {
+      "name": "雪绒",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "深靛",
+      "rarity": 4,
+      "profession": "术师",
+      "tags": [
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "异客",
+      "rarity": 6,
+      "profession": "术师",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "桑葚",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "歌蕾蒂娅",
+      "rarity": 6,
+      "profession": "特种",
+      "tags": [
+        "位移",
+        "输出",
+        "控场"
+      ]
+    },
+    {
+      "name": "赤冬",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "生存",
+        "输出"
+      ]
+    },
+    {
+      "name": "夜半",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "控场"
+      ]
+    },
+    {
+      "name": "绮良",
+      "rarity": 5,
+      "profession": "特种",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "琴柳",
+      "rarity": 6,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "支援"
+      ]
+    },
+    {
+      "name": "罗比菈塔",
+      "rarity": 4,
+      "profession": "辅助",
+      "tags": [
+        "防护",
+        "支援"
+      ]
+    },
+    {
+      "name": "帕拉斯",
+      "rarity": 6,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "支援"
+      ]
+    },
+    {
+      "name": "龙舌兰",
+      "rarity": 5,
+      "profession": "近卫",
+      "tags": [
+        "爆发"
+      ]
+    },
+    {
+      "name": "波卜",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "元素"
+      ]
+    },
+    {
+      "name": "青枳",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "防护"
+      ]
+    },
+    {
+      "name": "蚀清",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "群攻",
+        "削弱"
+      ]
+    },
+    {
+      "name": "休谟斯",
+      "rarity": 4,
+      "profession": "近卫",
+      "tags": [
+        "输出",
+        "生存"
+      ]
+    },
+    {
+      "name": "夏栎",
+      "rarity": 5,
+      "profession": "辅助",
+      "tags": [
+        "支援",
+        "生存"
+      ]
+    },
+    {
+      "name": "火哨",
+      "rarity": 5,
+      "profession": "重装",
+      "tags": [
+        "输出",
+        "防护"
+      ]
+    },
+    {
+      "name": "刺玫",
+      "rarity": 5,
+      "profession": "医疗",
+      "tags": [
+        "治疗"
+      ]
+    },
+    {
+      "name": "野鬃",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "输出"
+      ]
+    },
+    {
+      "name": "晓歌",
+      "rarity": 5,
+      "profession": "先锋",
+      "tags": [
+        "费用回复",
+        "快速复活"
+      ]
+    },
+    {
+      "name": "隐现",
+      "rarity": 5,
+      "profession": "狙击",
+      "tags": [
+        "输出"
+      ]
+    },
+    {
+      "name": "折光",
+      "rarity": 5,
+      "profession": "术师",
+      "tags": [
+        "元素",
+        "输出"
+      ]
+    },
+    {
+      "name": "黑角",
+      "rarity": 2,
+      "profession": "重装",
+      "tags": [
+        "新手"
+      ]
+    },
+    {
+      "name": "杜林",
+      "rarity": 2,
+      "profession": "术师",
+      "tags": [
+        "新手"
+      ]
+    },
+    {
+      "name": "夜刀",
+      "rarity": 2,
+      "profession": "先锋",
+      "tags": [
+        "新手"
+      ]
+    },
+    {
+      "name": "巡林者",
+      "rarity": 2,
+      "profession": "狙击",
+      "tags": [
+        "新手"
+      ]
+    }
+  ]
+}

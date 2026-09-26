@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import pkg from '../package.json';
-import type { Depot, OperBoxEntry } from './lib/types';
+import type { Depot, DatasetKind, OperBoxEntry } from './lib/types';
 import { loadDataset } from './lib/data';
 import ErrorBoundary from './components/ErrorBoundary';
 import ImportPanel from './components/ImportPanel';
@@ -40,7 +40,8 @@ function loadPersisted(): Persisted {
 }
 
 export default function App() {
-  const dataset = loadDataset();
+  const [datasetKind, setDatasetKind] = useState<DatasetKind>('real');
+  const dataset = loadDataset(datasetKind);
   const [tab, setTab] = useState<TabId>('import');
   const [{ box, depot }, setState] = useState<Persisted>(loadPersisted);
 
@@ -57,6 +58,17 @@ export default function App() {
       <header className="header">
         <h1>方舟培养参谋</h1>
         <p className="tagline">练谁 · 缺什么 · 去哪刷 —— 开源的明日方舟培养规划工具</p>
+        <div className="row">
+          <label className="muted small" htmlFor="dataset-switch">数据源</label>
+          <select
+            id="dataset-switch"
+            value={datasetKind}
+            onChange={(e) => setDatasetKind(e.target.value as DatasetKind)}
+          >
+            <option value="real">真实游戏数据</option>
+            <option value="sample">样例演示数据</option>
+          </select>
+        </div>
         {dataset.isSample ? (
           <div className="sample-banner" role="status">
             ⚠ 当前使用<strong>内置样例数据</strong>（合成数值，仅供功能演示）——

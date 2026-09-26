@@ -19,8 +19,16 @@
 | 数据源 | 许可 | 用途 | 状态 |
 | --- | --- | --- | --- |
 | MAA（MaaAssistantArknights） | 代码 AGPL-3.0（GitHub API 核实） | 导出 JSON **格式**参考：本地解析用户自己的导出文件；不复制、不链接、不分发其代码 | 格式已核实，适配器已接入（v0.4.0） |
+| 游戏数据提取（Kengxxiao/ArknightsGameData） | 仓库**未声明许可**；数据版权归上海鹰角网络科技 / Yostar | 真实数据集的数值来源：干员名单、材料、合成配方、精英化消耗、关卡理智与掉落物列表（不含任何美术资源） | 已接入（v0.5.0，blob SHA 核验） |
 | 企鹅物流数据统计（penguin-statistics） | 组织内代码多为 MIT（`backend-next`、`frontend-v2`、`ArkPlanner` 均为 MIT）；线上 API 与数据**未见书面条款** | 计划：真实掉率与刷图效率（**尚未接入**） | API 可用性与 CORS 已实测（2026-09-26），未接入 |
 | 一图流（yituliu） | 核心仓库 `BackEndV3` / `frontend-v3` **均未声明许可**（无 LICENSE 文件）；API **无书面条款** | 计划：养成效率数据（**尚未接入**） | API 可达性与 CORS 已实测（2026-09-26），未接入 |
+
+## 游戏数据提取核实记录（2026-09-26，v0.5.0 接入）
+
+- 来源仓库：https://github.com/Kengxxiao/ArknightsGameData （master 分支，社区维护的游戏数据提取；**仓库未声明许可**，数据版权归上海鹰角网络科技有限公司 / Yostar 所有）。仓库 2026-09-20 仍有更新（随游戏版本维护）。
+- 使用的文件（zh_CN/gamedata/excel/）及核验：`character_table.json`（`62d81cb4…`）、`item_table.json`（`c5322d45…`）、`building_data.json`（`6a61e7fb…`）、`stage_table.json`（`295aaf42…`）。下载经 jsDelivr CDN，本地 `git hash-object` 与 GitHub blob SHA **逐文件对账一致**；完整清单见 `src/data/real-*.json` 的 `_meta` 与 `scripts/build-real-dataset.mjs`。
+- 转换原则：`scripts/build-real-dataset.mjs` 只做结构转换与过滤，**不修改、不虚构任何数值**；期望掉率不在游戏数据中（置 0，不虚构）；干员精英化消耗不含龙门币（该数据版本未随附，如实缺失）。
+- 许可说明：本仓库未声明许可，本项目的使用方式为社区工具惯例 —— 仅引用数据表、不打包美术资源、显著注明归属、不用于商业用途；如权利方提出异议即移除。
 
 ## MAA 导出格式核实记录（2026-09-26）
 

@@ -10,7 +10,7 @@ function tinyDataset() {
       { name: '奶妈', rarity: 5, profession: '医疗', tags: ['治疗'] },
       { name: '低星近卫', rarity: 3, profession: '近卫', tags: ['输出'] },
     ],
-    evolutionCosts: {},
+    operatorCosts: {},
     stages: [],
     challengeStages: [],
     isSample: false,

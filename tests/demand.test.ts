@@ -3,7 +3,7 @@ import { buildDemand } from '../src/lib/demand';
 import { loadDataset } from '../src/lib/data';
 
 describe('buildDemand（样例数据集）', () => {
-  const dataset = loadDataset();
+  const dataset = loadDataset('sample');
 
   it('目标精二 = 累加 phase1 + phase2', () => {
     const surtr = dataset.operators.find((o) => o.name === '史尔特尔')!;
@@ -41,7 +41,7 @@ describe('buildDemand（样例数据集）', () => {
 
   it('稀有度缺少模板时抛出可读错误', () => {
     const fake = { name: '不存在', rarity: 6 as const, profession: '近卫' as const, tags: [] };
-    const broken = { ...dataset, evolutionCosts: {} };
-    expect(() => buildDemand([{ info: fake, targetPhase: 2 }], broken)).toThrow(/精英化消耗模板/);
+    const broken = { ...dataset, operatorCosts: {} };
+    expect(() => buildDemand([{ info: fake, targetPhase: 2 }], broken)).toThrow(/精英化消耗数据/);
   });
 });

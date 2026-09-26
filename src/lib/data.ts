@@ -1,7 +1,18 @@
-/** 数据集加载：当前唯一来源是内置合成样例数据。 */
+/**
+ * 数据集加载：内置真实游戏数据（默认）与样例演示数据两个来源。
+ *
+ * - 真实数据（real-*.json）：由 scripts/build-real-dataset.mjs 从游戏数据提取仓库
+ *   （Kengxxiao/ArknightsGameData，来源与 blob SHA 核验记录见 NOTICE.md）结构转换生成，
+ *   未修改、未虚构任何数值；期望掉率不在游戏数据中（为 0），掉率来源接入前刷取规划受限。
+ * - 样例数据（sample-*.json）：全部标注 SYNTHETIC_SAMPLE 的合成数值，仅用于功能演示；
+ *   其按稀有度的消耗模板在加载时合成为按干员的 operatorCosts。
+ *
+ * UI 顶部的数据源切换只改变 kind，核心逻辑不感知数据来源。
+ */
 import type {
   ChallengeStage,
   Dataset,
+  DatasetKind,
   MaterialInfo,
   StageInfo,
   EvolutionCost,
@@ -12,10 +23,14 @@ import sampleOperators from '../data/sample-operators.json';
 import sampleEvolutionCosts from '../data/sample-evolution-costs.json';
 import sampleStages from '../data/sample-stages.json';
 import sampleChallengeStages from '../data/sample-challenge-stages.json';
+import realMaterials from '../data/real-materials.json';
+import realOperators from '../data/real-operators.json';
+import realOperatorCosts from '../data/real-operator-costs.json';
+import realStages from '../data/real-stages.json';
 
 interface RawMaterials {
   _meta?: { source?: string; note?: string };
-  materials: Omit<MaterialInfo, never>[];
+  materials: MaterialInfo[];
 }
 interface RawOperators {
   _meta?: { source?: string; note?: string };
@@ -31,44 +46,81 @@ interface RawEvolutionCosts {
 interface RawChallenges {
   challengeStages: ChallengeStage[];
 }
+interface RawOperatorCosts {
+  costs: Record<string, EvolutionCost>;
+}
 
-let cached: Dataset | null = null;
+const caches: Partial<Record<DatasetKind, Dataset>> = {};
 
-/**
- * 返回当前数据集（进程内缓存）。
- * 未来接入真实数据源时，替换此函数的实现即可 —— UI 与核心逻辑不感知数据来源。
- */
-export function loadDataset(): Dataset {
-  if (cached) return cached;
-
-  const mats = sampleMaterials as RawMaterials;
+function buildFromMaterials(mats: RawMaterials): Record<string, MaterialInfo> {
   const materials: Record<string, MaterialInfo> = {};
   for (const m of mats.materials) {
     materials[m.id] = m;
   }
+  return materials;
+}
 
+function buildSampleDataset(): Dataset {
+  const mats = sampleMaterials as RawMaterials;
   const ops = sampleOperators as RawOperators;
   const stages = sampleStages as RawStages;
   const evolutionCosts = (sampleEvolutionCosts as unknown as RawEvolutionCosts).costs;
   const challengeStages = (sampleChallengeStages as unknown as RawChallenges).challengeStages;
 
-  const isSample = mats._meta?.source === 'SYNTHETIC_SAMPLE';
+  // 样例数据保持"按稀有度模板"的旧语义：在加载时合成为按干员的 operatorCosts，
+  // 使两种数据源在 demand 层共用同一接口。
+  const operatorCosts: Record<string, EvolutionCost> = {};
+  for (const op of ops.operators) {
+    operatorCosts[op.name] = evolutionCosts[String(op.rarity)] ?? { phase1: [], phase2: [] };
+  }
 
-  cached = {
-    materials,
+  return {
+    materials: buildFromMaterials(mats),
     operators: ops.operators,
-    evolutionCosts,
+    operatorCosts,
     stages: stages.stages,
     challengeStages,
-    isSample,
+    isSample: mats._meta?.source === 'SYNTHETIC_SAMPLE',
     metaNote: mats._meta?.note ?? '',
   };
-  return cached;
+}
+
+function buildRealDataset(): Dataset {
+  const mats = realMaterials as RawMaterials;
+  const ops = realOperators as RawOperators;
+  const stages = realStages as RawStages;
+  const operatorCosts = (realOperatorCosts as unknown as RawOperatorCosts).costs;
+  // 挑战型关卡的机制标注是编辑性数据，尚无已核实的真实来源 —— 如实留空，
+  // 「按目标关卡」推荐在真实数据集下暂不可用（UI 有空态提示）。
+  const challengeStages: ChallengeStage[] = [];
+
+  return {
+    materials: buildFromMaterials(mats),
+    operators: ops.operators,
+    operatorCosts,
+    stages: stages.stages,
+    challengeStages,
+    isSample: mats._meta?.source === 'GAME_DATA' ? false : true,
+    metaNote: mats._meta?.note ?? '',
+  };
+}
+
+/**
+ * 返回指定来源的数据集（按来源进程内缓存）。
+ * kind：'real'（默认，真实游戏数据）| 'sample'（样例演示数据）。
+ */
+export function loadDataset(kind: DatasetKind = 'real'): Dataset {
+  const hit = caches[kind];
+  if (hit) return hit;
+  const dataset = kind === 'sample' ? buildSampleDataset() : buildRealDataset();
+  caches[kind] = dataset;
+  return dataset;
 }
 
 /** 供测试重置缓存 */
 export function resetDatasetCache(): void {
-  cached = null;
+  caches.real = undefined;
+  caches.sample = undefined;
 }
 
 /**
@@ -95,7 +147,7 @@ export function depotByNameToIds(
   return { depot, unknownNames };
 }
 
-/** 示例 box（与样例数据集配套，用于一键演示；name 由键名补充） */
+/** 示例 box（用于一键演示；干员在两种数据集中均存在；name 由键名补充） */
 export const SAMPLE_BOX: Record<string, Omit<OperBoxEntry, 'name'>> = {
   芬: { elite: 1, level: 50 },
   讯使: { elite: 0, level: 30 },
@@ -110,7 +162,7 @@ export const SAMPLE_BOX: Record<string, Omit<OperBoxEntry, 'name'>> = {
   阿米娅: { elite: 1, level: 70 },
 };
 
-/** 示例库存（材料名 → 数量，配合样例数据集） */
+/** 示例库存（材料名 → 数量；材料名在两种数据集中均存在） */
 export const SAMPLE_DEPOT_BY_NAME: Record<string, number> = {
   源岩: 20,
   固源岩: 4,

@@ -172,9 +172,24 @@ function acquire(
     });
     return result;
   }
+  if (hasStageCoverage(materialId, dataset)) {
+    // 真实数据集：关卡掉落物列表来自游戏数据（真实），但期望掉率尚未接入 —— 如实告知，
+    // 不用虚构掉率估算次数。
+    result.feasible = false;
+    result.warnings.push(
+      `材料「${mat?.name ?? materialId}」有真实掉落关卡，但数据集缺少真实掉率` +
+        `（待企鹅物流等来源接入），暂无法估算刷取次数。`,
+    );
+    return result;
+  }
   result.feasible = false;
   result.warnings.push(`材料「${mat?.name ?? materialId}」既无掉落来源，也无法通过合成获得。`);
   return result;
+}
+
+/** 该材料是否出现在任何关卡的掉落列表中（与掉率数值无关） */
+function hasStageCoverage(materialId: string, dataset: Dataset): boolean {
+  return dataset.stages.some((stage) => stage.drops.some((d) => d.materialId === materialId));
 }
 
 export function planFarming({ demand, depot, dataset }: PlanParams): PlanResult {

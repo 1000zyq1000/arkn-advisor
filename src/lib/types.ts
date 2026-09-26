@@ -34,7 +34,7 @@ export interface MaterialInfo {
   craft?: CraftRecipe;
 }
 
-/** 某稀有度的精英化消耗模板（样例数据；真实消耗按干员各有差异） */
+/** 某干员的精英化消耗（真实数据按干员各有差异） */
 export interface EvolutionCost {
   phase1: MaterialCount[];
   phase2: MaterialCount[];
@@ -70,12 +70,12 @@ export interface ChallengeStage {
   mechanics: string[];
 }
 
-/** 一次加载完成的完整数据集（当前来自内置样例，未来由适配器提供） */
+/** 一次加载完成的完整数据集（真实游戏数据或样例演示数据） */
 export interface Dataset {
   materials: Record<string, MaterialInfo>;
   operators: OperatorInfo[];
-  /** key 为稀有度数字字符串，如 "6" */
-  evolutionCosts: Record<string, EvolutionCost>;
+  /** key 为干员名；真实数据按干员各异，样例数据由稀有度模板合成 */
+  operatorCosts: Record<string, EvolutionCost>;
   stages: StageInfo[];
   /** 挑战型关卡（“目标关卡”推荐的数据源） */
   challengeStages: ChallengeStage[];
@@ -92,6 +92,9 @@ export interface OperBoxEntry {
   level: number;
   potential?: number;
 }
+
+/** 数据集来源：真实游戏数据（默认）或样例演示数据 */
+export type DatasetKind = 'real' | 'sample';
 
 /** 材料库存：key 为材料 id，value 为数量 */
 export type Depot = Record<string, number>;

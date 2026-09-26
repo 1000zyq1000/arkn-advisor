@@ -12,7 +12,7 @@ function tinyDataset(): Dataset {
       d: { id: 'd', name: '丁', tier: 4, craft: { inputs: [{ materialId: 'c', count: 2 }] } },
     },
     operators: [],
-    evolutionCosts: {},
+    operatorCosts: {},
     stages: [
       { id: 's1', code: 'S1', name: '', sanity: 6, drops: [{ materialId: 'a', expectPerRun: 2 }] },
       {
