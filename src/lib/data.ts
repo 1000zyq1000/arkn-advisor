@@ -27,6 +27,7 @@ import realMaterials from '../data/real-materials.json';
 import realOperators from '../data/real-operators.json';
 import realOperatorCosts from '../data/real-operator-costs.json';
 import realStages from '../data/real-stages.json';
+import realChallengeStages from '../data/real-challenge-stages.json';
 
 interface RawMaterials {
   _meta?: { source?: string; note?: string };
@@ -48,6 +49,9 @@ interface RawChallenges {
 }
 interface RawOperatorCosts {
   costs: Record<string, EvolutionCost>;
+}
+interface RawRealChallenges {
+  challengeStages: ChallengeStage[];
 }
 
 const caches: Partial<Record<DatasetKind, Dataset>> = {};
@@ -90,9 +94,9 @@ function buildRealDataset(): Dataset {
   const ops = realOperators as RawOperators;
   const stages = realStages as RawStages;
   const operatorCosts = (realOperatorCosts as unknown as RawOperatorCosts).costs;
-  // 挑战型关卡的机制标注是编辑性数据，尚无已核实的真实来源 —— 如实留空，
-  // 「按目标关卡」推荐在真实数据集下暂不可用（UI 有空态提示）。
-  const challengeStages: ChallengeStage[] = [];
+  // 挑战型关卡机制需求由生成脚本从敌人数值启发式推导（方法与阈值见生成脚本与 NOTICE.md）——
+  // 编辑性标注而非官方数据，但输入全部是真实游戏数据。
+  const challengeStages = (realChallengeStages as unknown as RawRealChallenges).challengeStages;
 
   return {
     materials: buildFromMaterials(mats),

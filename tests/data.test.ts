@@ -86,8 +86,23 @@ describe('真实数据集（默认）', () => {
     expect(dataset.materials['4001']?.name).toBe('龙门币');
   });
 
-  it('挑战关卡如实为空（机制标注属编辑性数据，尚无真实来源）', () => {
-    expect(dataset.challengeStages).toEqual([]);
+  it('挑战关卡（绝境作战）由敌人数值启发式推导，全部命中亲和表且编号唯一', () => {
+    // 53 个绝境作战关卡，全部应推导出至少一种机制需求
+    expect(dataset.challengeStages.length).toBeGreaterThanOrEqual(50);
+    const codes = dataset.challengeStages.map((s) => s.code);
+    expect(new Set(codes).size).toBe(codes.length);
+    for (const stage of dataset.challengeStages) {
+      expect(/^H\d/.test(stage.code), `非绝境关卡混入：${stage.code}`).toBe(true);
+      expect(stage.mechanics.length).toBeGreaterThan(0);
+      for (const m of stage.mechanics) {
+        expect(MECHANIC_AFFINITY[m], `机制「${m}」缺少亲和定义`).toBeTruthy();
+      }
+    }
+  });
+
+  it('挑战关卡抽样锁定：H6-4（冰狱行动-4）需要法伤', () => {
+    const h64 = dataset.challengeStages.find((s) => s.code === 'H6-4');
+    expect(h64?.mechanics).toContain('需要法伤');
   });
 
   it('depotByNameToIds 同时接受材料名与材料 ID 作为键', () => {

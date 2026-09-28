@@ -26,8 +26,9 @@
 ## 游戏数据提取核实记录（2026-09-26，v0.5.0 接入）
 
 - 来源仓库：https://github.com/Kengxxiao/ArknightsGameData （master 分支，社区维护的游戏数据提取；**仓库未声明许可**，数据版权归上海鹰角网络科技有限公司 / Yostar 所有）。仓库 2026-09-20 仍有更新（随游戏版本维护）。
-- 使用的文件（zh_CN/gamedata/excel/）及核验：`character_table.json`（`62d81cb4…`）、`item_table.json`（`c5322d45…`）、`building_data.json`（`6a61e7fb…`）、`stage_table.json`（`295aaf42…`）。下载经 jsDelivr CDN，本地 `git hash-object` 与 GitHub blob SHA **逐文件对账一致**；完整清单见 `src/data/real-*.json` 的 `_meta` 与 `scripts/build-real-dataset.mjs`。
+- 使用的文件（zh_CN/gamedata/）及核验：`excel/character_table.json`（`62d81cb4…`）、`excel/item_table.json`（`c5322d45…`）、`excel/building_data.json`（`6a61e7fb…`）、`excel/stage_table.json`（`295aaf42…`）、`excel/enemy_handbook_table.json`、`levels/enemydata/enemy_database.json`（`96325021…`）、`levels/obt/hard/` 下 53 个绝境作战关卡文件。下载经 jsDelivr CDN，本地 `git hash-object` 与 GitHub blob SHA **逐文件对账一致**；完整清单见 `src/data/real-*.json` 的 `_meta` 与 `scripts/build-real-dataset.mjs`。
 - 转换原则：`scripts/build-real-dataset.mjs` 只做结构转换与过滤，**不修改、不虚构任何数值**；期望掉率不在游戏数据中（置 0，不虚构）；干员精英化消耗不含龙门币（该数据版本未随附，如实缺失）。
+- 挑战关卡机制标注：绝境作战关卡的「机制需求」不在游戏数据中，由本项目从敌人基础数值（enemy_database）**启发式推导**（如高防敌人占比 → 需要法伤；快速高攻敌人占比 → 需要控场），规则与阈值在生成脚本头部注释中完全公开。这是编辑性标注而非官方数据，仅供推荐引擎的亲和加成参考。
 - 许可说明：本仓库未声明许可，本项目的使用方式为社区工具惯例 —— 仅引用数据表、不打包美术资源、显著注明归属、不用于商业用途；如权利方提出异议即移除。
 
 ## MAA 导出格式核实记录（2026-09-26）

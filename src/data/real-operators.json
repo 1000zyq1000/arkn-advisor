@@ -6,10 +6,12 @@
       "character_table.json": "62d81cb4623b9960c028004f638be27ef15c9641",
       "item_table.json": "c5322d45630b9d74a68b187e87ef11e6983b937d",
       "building_data.json": "6a61e7fb9b6a9eec357da7441c25816e808f31cf",
-      "stage_table.json": "295aaf42807cc3e0cf050b6ef0cd96837fd35547"
+      "stage_table.json": "295aaf42807cc3e0cf050b6ef0cd96837fd35547",
+      "enemy_database.json": "9632502149c7d1188d051eab5b94b778c8be0973",
+      "levels/hard_stages": "53 个绝境作战关卡文件（obt/hard/level_hard_*.json，经 JSON 可解析性校验）"
     },
     "fetchedAt": "2026-09-26",
-    "generatedAt": "2026-09-26",
+    "generatedAt": "2026-09-28",
     "extraction": "本地 git hash-object 与 GitHub contents API 报告的 blob SHA 逐文件对账一致",
     "note": "真实干员名单（名称/稀有度/职业/公招标签）。全部数值直接转换自游戏数据提取（未修改、未虚构）；期望掉率不在游戏数据中（置 0），刷取规划待企鹅物流等真实掉率来源接入后启用；干员精英化消耗不含龙门币（游戏数据该版本未随 phases 提供）。同名的多形态干员（如阿米娅的多形态）仅保留基础形态。"
   },

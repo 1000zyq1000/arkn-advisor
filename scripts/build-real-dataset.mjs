@@ -231,4 +231,99 @@ write('real-stages.json', { ...baseMeta(), note: '真实主线与常驻资源关
   stages,
 });
 
+// ---------- 挑战型关卡（绝境作战）机制推导 ----------
+// 「关卡机制需求」不在游戏数据中，无法直接提取。这里采用**数据驱动的启发式标注**：
+// 从关卡波次的实际出怪与敌人基础数值（enemy_database level '0'）推导，
+// 规则与阈值如下（透明、可讨论；这是编辑性标注，非官方数据）：
+//   需要法伤   = 高防敌人（def≥500 且 def≥2×抗性）占比 ≥15%
+//   需要爆发   = 高血敌人（hp≥18000）数量 ≥2
+//   需要群攻清杂 = 出怪总数 ≥55
+//   需要高阻挡 = 重甲敌人（hp≥6000 且 def≥200 且 速度≤1.0）占比 ≥20%
+//   需要控场   = 快速高攻敌人（速度≥1.2 且 攻击≥500）占比 ≥12%
+//   需要治疗续航 = 高攻敌人（攻击≥800）占比 ≥20%
+const db = JSON.parse(fs.readFileSync(path.join(fromDir, 'agd-enemy_database.json'), 'utf8'));
+const enemyStats = new Map();
+for (const it of db.enemies) {
+  const variants = it.Value ?? {};
+  const base = variants['0'] ?? Object.values(variants)[0];
+  if (!base?.enemyData?.attributes) continue;
+  const a = base.enemyData.attributes;
+  const m = (x) => (x && typeof x === 'object' && x.m_defined !== false ? x.m_value : undefined);
+  enemyStats.set(it.Key, {
+    hp: m(a.maxHp),
+    atk: m(a.atk),
+    def: m(a.def),
+    res: m(a.magicResistance),
+    spd: m(a.moveSpeed),
+  });
+}
+
+function stageEnemies(levelRelPath) {
+  const lv = JSON.parse(
+    fs.readFileSync(path.join(fromDir, 'levels', path.basename(levelRelPath)), 'utf8'),
+  );
+  const counts = new Map();
+  const add = (key, n) => {
+    if (!/^enemy_/.test(key ?? '')) return;
+    counts.set(key, (counts.get(key) ?? 0) + n);
+  };
+  for (const w of lv.waves ?? []) {
+    for (const frag of w.fragments ?? []) {
+      for (const a of frag.actions ?? []) {
+        if (a.actionType === 'SPAWN' || a.actionType === 'SPAWN_ENEMIES') add(a.key, a.count ?? 1);
+      }
+    }
+  }
+  for (const pre of [lv.predefines, lv.hardPredefines]) {
+    for (const inst of pre?.enemyInsts ?? []) add(inst.id, 1);
+  }
+  return counts;
+}
+
+const challengeStages = [];
+const hStages = Object.values(st.stages).filter((s) => /^H\d/.test(s.code ?? ''));
+for (const s of hStages) {
+  let counts;
+  try {
+    counts = stageEnemies(s.levelId.replace('Obt/Hard', 'obt/hard') + '.json');
+  } catch {
+    console.warn(`关卡文件缺失，跳过 ${s.code}`);
+    continue;
+  }
+  let total = 0;
+  const agg = { armored: 0, burst: 0, chunky: 0, fast: 0, pressure: 0 };
+  for (const [id, n] of counts) {
+    const v = enemyStats.get(id);
+    total += n;
+    if (!v || v.hp === undefined) continue;
+    if (v.def >= 500 && v.def >= 2 * (v.res ?? 0)) agg.armored += n;
+    if (v.hp >= 18000) agg.burst += n;
+    if (v.hp >= 6000 && v.def >= 200 && (v.spd ?? 1) <= 1.0) agg.chunky += n;
+    if ((v.spd ?? 0) >= 1.2 && (v.atk ?? 0) >= 500) agg.fast += n;
+    if ((v.atk ?? 0) >= 800) agg.pressure += n;
+  }
+  const share = (n) => (total ? n / total : 0);
+  const mechanics = [];
+  if (share(agg.armored) >= 0.15) mechanics.push('需要法伤');
+  if (agg.burst >= 2) mechanics.push('需要爆发');
+  if (total >= 55) mechanics.push('需要群攻清杂');
+  if (share(agg.chunky) >= 0.2) mechanics.push('需要高阻挡');
+  if (share(agg.fast) >= 0.12) mechanics.push('需要控场');
+  if (share(agg.pressure) >= 0.2) mechanics.push('需要治疗续航');
+  if (mechanics.length === 0) continue;
+  challengeStages.push({ id: s.stageId, code: s.code, name: s.name, mechanics });
+}
+challengeStages.sort((a, b) => a.id.localeCompare(b.id));
+
+write('real-challenge-stages.json', {
+  ...baseMeta(),
+  note:
+    '绝境作战关卡的机制需求为**本项目由敌人数值启发式推导**（规则与阈值见生成脚本头部注释；' +
+    `敌人数值来源 enemy_database，blob SHA ${manifest.blobs['enemy_database.json'].slice(0, 10)}…）。` +
+    '这是编辑性标注而非官方数据，仅供推荐引擎的亲和加成参考。',
+}, {
+  challengeStages,
+});
+console.log(`挑战关卡（启发式推导）= ${challengeStages.length}/${hStages.length}`);
+
 console.log(`统计：材料 ${materials.length}（含配方 ${craftCount}）| 干员 ${operators.length}（另有 ${skippedNotObtainable} 条不可获取条目被排除）| 消耗条目 ${Object.keys(costs).length} | 关卡 ${stages.length}`);
